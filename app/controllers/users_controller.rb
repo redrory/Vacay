@@ -14,6 +14,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to Vacay Tracker"
       redirect_to @user
     else
+      @title = "Sign up"
       render 'new'
     end
   end

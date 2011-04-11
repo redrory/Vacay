@@ -22,9 +22,12 @@
 <div id="subheader">
 	<h2><%=@title %></h2>
 </div>
+	 <% if signed_in? %>
+	<%= link_to "Sign out", signout_path, :method => :delete %>
+	<% else %>
+	<%= link_to "Sign in", signin_path %>
 
-
-
+	<% end %>
 <%= yield %>	
 </div>
 
