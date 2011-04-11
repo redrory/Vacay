@@ -1,0 +1,35 @@
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Date of Birth</th>
+    <th>Date of Employment</th>
+    <th>Vacation Days Allotted</th>
+    <th>Vacation Days Used</th>
+    <th>Sick Days Allotted</th>
+    <th>Sick Days Used</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @manages.each do |manage| %>
+  <tr>
+    <td><%= manage.name %></td>
+    <td><%= manage.dob %></td>
+    <td><%= manage.doe %></td>
+    <td><%= manage.vacayAllot %></td>
+    <td><%= manage.vacayUsed %></td>
+    <td><%= manage.sickAllot %></td>
+    <td><%= manage.sickHave %></td>
+    <td><%= link_to 'Show', manage %></td>
+    <td><%= link_to 'Edit', edit_manage_path(manage) %></td>
+    <td><%= link_to 'Destroy', manage, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Add Employee', new_manage_path %>

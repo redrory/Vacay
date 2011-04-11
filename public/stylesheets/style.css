@@ -1,0 +1,43 @@
+#container {
+  width: 90%;
+  margin: 0 auto;
+  background-color: #FFF;
+  padding: 20px 40px;
+  border: solid 1px black;
+  margin-top: 20px;
+  text-align: center;
+
+}
+
+body {
+  background-color: #FFD39C;
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 14px;
+}
+
+#bag{
+	
+	display: hidden;
+}
+
+#setForm{
+  	width: 60%;
+  	text-align: left;
+  	margin-left: auto ;
+  	margin-right: auto ;
+}
+
+#reportForm{
+	width: 60%;
+  	text-align: left;
+  	margin-left: auto ;
+  	margin-right: auto ;
+}
+
+#showEmployee {
+	background: #ffc;
+	width: 60%;
+  	text-align: left;
+  	margin-left: auto ;
+  	margin-right: auto ;
+}

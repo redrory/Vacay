@@ -1,0 +1,19 @@
+
+<div id="employForm">
+	
+</div>
+<%= simple_form_for @user do |f| %>
+    <%= f.input :name, :label => "Name" %>
+	<%= f.input :date_of_birth, :as => :date, :start_year => Date.today.year - 12,
+	                                :end_year => Date.today.year - 90,
+	                                :order => [:month,:day,:year] %>
+	<%= f.input :date_of_employment, :as => :date, :start_year => Date.today.year,
+	                                :end_year => Date.today.year - 90,
+	                                :order => [:month,:day,:year] %>
+									
+	<%= f.input :vacayHave, :label => "Vacation Days Allotted"%>
+	<%= f.input :vacayUsed, :label => "Vacation Days Used" %>
+	<%= f.input :sickHave, :label => "Sicks Days Allotted" %>
+	<%= f.input :sickUsed, :label => "Sicks Days Used" %>
+    <%= f.button :submit %>
+  <% end %>
