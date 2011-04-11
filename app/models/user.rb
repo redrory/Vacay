@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
   
-  attr_accessible :name, :email, :password, :password_confirmation
+  attr_accessible :name, :email, :password, :password_confirmation, :company
   
   validates :name,  :presence => true,
                       :length   => { :minimum => 5 }
+  validates :company,  :presence => true                 
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
