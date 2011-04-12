@@ -20,11 +20,66 @@ body {
 	display: hidden;
 }
 
+table
+{ 
+margin-left: auto;
+margin-right: auto;
+}
+
+#nav {
+margin-top: 20px;
+padding: 0;
+float: right;
+color: white;
+}
+
+#nav {
+width: 400px;
+height: 30px;
+margin-top: 50px;
+background: url('http://robmenot.com/images/nav.png') no-repeat;
+}
+
+#nav li {
+display: inline;
+padding: 0;
+margin: 0;
+}
+
+#plans{
+	height: 250px;
+	
+}
+#main{
+	width: 802px;
+	margin: 0 auto;
+	height: 250px;
+	
+}
+#leftbox{
+ 	width: 400px;
+    float: left;
+
+}
+
+#rightbox{
+	float:right;
+	width: 395px;
+}
+
 #setForm{
   	width: 60%;
   	text-align: left;
   	margin-left: auto ;
   	margin-right: auto ;
+}
+
+#priceUp {
+width: 550px;
+height: 35px;
+margin-left: auto ;
+margin-right: auto ;
+background: url('http://robmenot.com/images/nav.png') no-repeat;
 }
 
 #reportForm{

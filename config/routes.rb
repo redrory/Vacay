@@ -8,6 +8,9 @@ Vacaytracker::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
 
   root :to => "site#home"
+  
+  match '/about' => 'site#about'
+  match '/plans' => 'site#plans'
 
    match "manages" => "site#manage"
    match "set" => "site#set"

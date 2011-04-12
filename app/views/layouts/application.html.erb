@@ -11,23 +11,30 @@
 <div id="container">
 	<div id ="header">
 	<%=link_to image_tag "logo.png", {:action => :home}%>
-  </div>
-<div id="nav">
-	<a href="/"> Dashboard</a>
-	<a href="/manages">Manage Employees</a>
-	<a href="/set">Set Prompts</a>
-	<a href="/report">Generate Reports</a>
-</div>
+	<div id="nav">
+		<li class="home"><a href="/">Home</a></li>
+		<li class="home"><a href="/about">About</a></li>
+		<li class="home"><a href="/plans">Pricing & Sign Up</a></li>
+		<li class="home"><a href="http://www.rorywalker.com">Blog</a></li>
+		 <% if signed_in? %>
+		<%= link_to "Sign out", signout_path, :method => :delete %>
+		<% else %>
+		<%= link_to "Log in", signin_path %>
 
+		<% end %>
+	</div>
+	<% if signed_in? %>
+	<div id="employee_nav">
+		<a href="/"> Dashboard</a>
+		<a href="/manages">Manage Employees</a>
+		<a href="/set">Set Prompts</a>
+		<a href="/report">Generate Reports</a>
+	</div>
+	<% end %>
 <div id="subheader">
 	<h2><%=@title %></h2>
 </div>
-	 <% if signed_in? %>
-	<%= link_to "Sign out", signout_path, :method => :delete %>
-	<% else %>
-	<%= link_to "Sign in", signin_path %>
 
-	<% end %>
 <%= yield %>	
 </div>
 

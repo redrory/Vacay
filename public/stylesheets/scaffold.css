@@ -12,9 +12,10 @@ pre {
   font-size: 11px;
 }
 
-a { color: #000; }
-a:visited { color: #666; }
-a:hover { color: red; }
+a { color: #FFD39C; }
+/*a:visited { color: #666; }*/
+#nav a:visited { color: #FFD39C; }
+#nav a:hover { color: red; }
 
 div.field, div.actions {
   margin-bottom: 10px;

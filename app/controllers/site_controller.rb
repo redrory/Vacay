@@ -1,7 +1,7 @@
 class SiteController < ApplicationController
 
   def home
-    @title = "Home Page"
+    #@title = "Home Page"
   end
   
   def manage
@@ -12,6 +12,14 @@ class SiteController < ApplicationController
   def set
     @title = "Set Prompts"
     @user = "Rory"
+  end
+  
+  def about
+    @title = "About Vacay Tracker"
+  end
+  
+  def plans
+    @title = "Pricing and Sign-up"
   end
 
 end
