@@ -91,7 +91,26 @@ a.signup_button {
   font-size: 150%;
   font-weight: bold;
   padding: 20px;
+  margin-top: 200px;
 }
+
+#main{
+
+
+}
+
+#leftbox{
+ 	width: 50%;
+    float: left;
+
+
+}
+
+#rightbox{
+	float:right;
+ 	width: 50%;
+}
+
 
 /* Round corners */
 
