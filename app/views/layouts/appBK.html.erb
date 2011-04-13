@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> <%= @title %> + Vacaytracker</title>
+
+  <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen'%>
+  <%= stylesheet_link_tag 'blueprint/print', :media => 'print'%>  
+  <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
+  <%= stylesheet_link_tag 'custom', :media =>'screen' %>
+<%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+ 
+</head>
+<body>
+<div id="container">
+	<div id ="header">
+	<%=link_to image_tag "logo.png", {:action => :home}%>
+	<nav class = "round">
+		<ul>
+			<li class="home"><a href="/">Home</a></li>
+			<li class="home"><a href="/about">About</a></li>
+			<li class="home"><a href="/plans">Pricing & Sign Up</a></li>
+			<li class="home"><a href="http://www.rorywalker.com">Blog</a></li>
+			 <% if signed_in? %>
+			<li class="home"><%= link_to "Sign out", signout_path, :method => :delete %></li>
+			<% else %>
+		    <li class="home">	<%= link_to "Log in", signin_path %></li>
+
+			<% end %>
+		</ul>
+	</nav>
+	<% if signed_in? %>
+	<div id="employee_nav">
+		<a href="/"> Dashboard</a>
+		<a href="/manages">Manage Employees</a>
+		<a href="/set">Set Prompts</a>
+		<a href="/report">Generate Reports</a>
+	</div>
+	<% end %>
+<div id="subheader">
+	<h2><%=@title %></h2>
+</div>
+<section class = "round">
+<%= yield %>	
+<section>
+</div>
+
+
+</body>
+</html>

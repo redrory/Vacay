@@ -1,7 +1,7 @@
 class SiteController < ApplicationController
 
   def home
-    #@title = "Home Page"
+    @title = "Home Page"
   end
   
   def manage
