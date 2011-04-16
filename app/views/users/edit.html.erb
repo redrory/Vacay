@@ -1,5 +1,5 @@
 <%= simple_form_for @user do |f| %>
-	<%= render 'shared/error_messages', :object => f.object %>
+
   <div class="field">
     <%= f.input :name %>
   </div>
@@ -16,7 +16,12 @@
     <%= f.input :password_confirmation %>
   </div>
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Update Changes" %>
   </div>
 <% end %>
+
+<div>
+
+	<a href="http://gravatar.com/emails">change</a>
+</div>
 

@@ -1,5 +1,4 @@
 
-
 <table>
   <tr>
     <th>Name</th>
@@ -14,18 +13,18 @@
     <th></th>
   </tr>
 
+
 <% @manages.each do |manage| %>
   <tr>
-    <td><%= manage.name %></td>
+    <td><%= link_to manage.name, manage %></td>
     <td><%= manage.dob %></td>
     <td><%= manage.doe %></td>
     <td><%= manage.vacayAllot %></td>
     <td><%= manage.vacayUsed %></td>
     <td><%= manage.sickAllot %></td>
     <td><%= manage.sickHave %></td>
-    <td><%= link_to 'Show', manage %></td>
     <td><%= link_to 'Edit', edit_manage_path(manage) %></td>
-    <td><%= link_to 'Destroy', manage, :confirm => 'Are you sure?', :method => :delete %></td>
+
   </tr>
 <% end %>
 </table>

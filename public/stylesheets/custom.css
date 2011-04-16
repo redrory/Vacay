@@ -78,6 +78,42 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
+/* Log nav*/
+navlg {
+  float: right;
+}
+
+navlg {
+  background-color: white;
+  padding: 0 0.7em;
+  white-space: nowrap;
+}
+
+navlg ul {
+  margin: 0;
+  padding: 0;
+}
+
+navlg ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0.2em 0;
+}
+
+navlg ul li a {
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+navlg ul li a:visited {
+  color: #09c;
+}
+
+navlg ul li a:hover {
+  text-decoration: underline;
+}
+
+
 /* sign up button*/
 
 a.signup_button {
@@ -135,7 +171,15 @@ footer nav {
   float: none;
 }
 
+/* index  */
 
+ul.users {
+  margin-top: 1em;
+}
+
+.users li {
+  list-style: none;
+}
 
 
 
