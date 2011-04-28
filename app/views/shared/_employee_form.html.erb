@@ -1,0 +1,22 @@
+<%= simple_form_for(@employee) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :name, :placeholder => "Employee name" %>
+    <%= f.input :dob,:label => "Date of Birth",:as => :date, :start_year => Date.today.year - 12,
+	                                :end_year => Date.today.year - 90,
+	                                :order => [:month,:day,:year] %>
+	
+    <%= f.input :doe,:label => "Date of Employment", :as => :date, :start_year => Date.today.year,
+									 :end_year => Date.today.year - 90,
+									 :order => [:month,:day,:year] %>
+    <%= f.input :vacayTotal, :label => "Vacation Days Allotted" %>
+    <%= f.input :vacayUsed , :label => "Vacation Days Used",%>
+    <%= f.input :sickTotal, :label => "Sick Days Allotted", %>
+    <%= f.input :sickUsed , :label => "Sick Days Allotted",%>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

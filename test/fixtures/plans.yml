@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  cost: 1
+  details: MyString
+  limit: 1
+
+two:
+  name: MyString
+  cost: 1
+  details: MyString
+  limit: 1

@@ -181,5 +181,66 @@ ul.users {
   list-style: none;
 }
 
+/* employee */
 
+h1.employee {
+  margin-bottom: 0.3em;
+}
 
+table.employees {
+  margin-top: 1em;
+}
+
+table.employees tr {
+  height: 70px;
+}
+
+table.employees tr td.gravatar {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  width: 50px;
+}
+
+table.employees tr td.employee {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  padding-top: 10px;
+}
+
+table.employees tr td.employee span.timestamp {
+  display: block;
+  font-size: 85%;
+  color: #666;
+}
+
+div.user_info img {
+  padding-right: 0.1em;
+}
+
+div.user_info a {
+  text-decoration: none;
+}
+
+div.user_info span.user_name {
+  position: absolute;
+}
+
+div.user_info span.employees {
+  font-size: 80%;
+}
+
+form.new_employee {
+  margin-bottom: 2em;
+}
+
+form.new_employee textarea {
+  height: 4em;
+  margin-bottom: 0;
+}
+
+/* sidebar round */
+
+#sidebar{
+padding-top:0px;
+	
+}

@@ -1,2 +1,27 @@
-<%= gravatar_image_tag @user.email %>
-<%= @user.name %>, <%= @user.email %>, <%= @user.company %>
+<table class="profile">
+  <tr>
+    <td class="main">
+ 
+<% unless @user.employees.empty? %>
+Employee approaching their anniversary.
+Employee with Max vacation days used.
+Employee with Max Sick days used.
+        <table class="employees" summary="User employees">
+			
+          <%= render @employees %>
+        </table>
+        <%= will_paginate @employees %>
+      <% end %>
+    </td>
+
+		<div id="sidebar">
+			
+		<b><%= @user.name %></b>
+ 		of <b><%= @user.company%></b>
+      with <strong><%= @user.employees.count %></strong> employees.
+    </td>
+		</div>
+  </tr>
+
+
+</table>

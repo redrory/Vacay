@@ -9,12 +9,18 @@
  <div class="field">
     <%= f.input :company %>
   </div>
+ <div class="field">
+<b>
+
+<%= f.input :size, :collection => @plan, :label_method => :details, :value_method =>:name, :include_blank => false %><!-- use :value_method =>:name, but need to change size to string-->
+  </div>
   <div class="field">
     <%= f.input :password %>
   </div>
   <div class="field">
     <%= f.input :password_confirmation %>
   </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

@@ -11,13 +11,21 @@ class UsersController < ApplicationController
   def show
       @user = User.find(params[:id])
       @title = @user.name
+      @employees = @user.employees.paginate(:page => params[:page])
   end
     
   def new
       @user = User.new
       @title = "Sign up"
+      @plan = Plan.all
+
   end
   
+  def allemploy
+    @user = current_user
+    @employees = @user.employees.paginate(:page => params[:page], :per_page => 5)
+  end
+
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -55,9 +63,6 @@ class UsersController < ApplicationController
   
   private
   
-  def authenticate
-    deny_access unless signed_in?
-  end
   
   def correct_user
     @user = User.find(params[:id])

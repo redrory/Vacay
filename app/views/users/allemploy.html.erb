@@ -1,0 +1,9 @@
+<%= link_to "Add Employee", "/new"%>
+<% unless @user.employees.empty? %>
+        <table class="employees" summary="User employees">
+          <%= render @employees %>
+        </table>
+        <%= will_paginate @employees %>
+      <% end %>
+    </td>
+

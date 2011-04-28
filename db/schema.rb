@@ -10,7 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110416012948) do
+ActiveRecord::Schema.define(:version => 20110418020441) do
+
+  create_table "employees", :force => true do |t|
+    t.string   "name"
+    t.date     "doe"
+    t.date     "dob"
+    t.integer  "vacayTotal"
+    t.integer  "vacayUsed"
+    t.integer  "sickTotal"
+    t.integer  "sickUsed"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "manages", :force => true do |t|
     t.string   "name"
@@ -20,6 +33,15 @@ ActiveRecord::Schema.define(:version => 20110416012948) do
     t.integer  "vacayUsed"
     t.integer  "sickAllot"
     t.integer  "sickHave"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "plans", :force => true do |t|
+    t.string   "name"
+    t.integer  "cost"
+    t.string   "details"
+    t.integer  "limit"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -38,7 +60,8 @@ ActiveRecord::Schema.define(:version => 20110416012948) do
     t.datetime "updated_at"
     t.string   "encrypted_password"
     t.string   "salt"
-    t.boolean  "admin",              :default => false
+    t.boolean  "admin",                             :default => false
+    t.string   "size",               :limit => nil
   end
 
 end

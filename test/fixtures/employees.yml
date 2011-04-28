@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  doe: 2011-04-17
+  dob: 2011-04-17
+  vacayTotal: 1
+  vacayUsed: 1
+  sickTotal: 1
+  sickUsed: 1
+  user_id: 1
+
+two:
+  name: MyString
+  doe: 2011-04-17
+  dob: 2011-04-17
+  vacayTotal: 1
+  vacayUsed: 1
+  sickTotal: 1
+  sickUsed: 1
+  user_id: 1
