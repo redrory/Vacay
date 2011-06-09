@@ -12,5 +12,5 @@ class Employee < ActiveRecord::Base
   
   
   
-  default_scope :order => 'employees.created_at DESC'
+  #default_scope :order => 'employees.created_at DESC'
 end

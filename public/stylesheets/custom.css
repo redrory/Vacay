@@ -244,3 +244,24 @@ form.new_employee textarea {
 padding-top:0px;
 	
 }
+#hideSick
+{
+	display:none;
+}
+
+.display
+{
+	display:none;
+}
+
+#AV
+{
+	display:none;
+}
+
+#MS
+{
+	display:none;
+}
+
+

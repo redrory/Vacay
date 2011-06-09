@@ -1,7 +1,11 @@
-<tr>
-  <td class="employee">
-    <span class="content"><%= employee.name %></span>
- 	<span class="content"><%= employee.doe %></span>
+
+
+	<td class="employee">
+		
+    	<b>Name</b> <span class="content"><%= employee.name %></span>
+		<b>DOE</b> <span class="content"><%= employee.doe %></span>
+		<b>Vacay Used</b> <span class="content"><%= employee.vacayUsed %></span>
+		<b>Sick Used</b> <span class="content"><%= employee.sickUsed %></span>
     <span class="timestamp">
       Posted <%= time_ago_in_words(employee.created_at) %> ago.
     </span>

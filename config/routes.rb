@@ -18,7 +18,7 @@ Vacaytracker::Application.routes.draw do
   match '/about' => 'site#about'
   match '/plans' => 'site#plans'
 
- #  match "manages" => "site#manage"
+   match "manages2" => "manages#show"
    match "manages" => "users#allemploy"
     match "all" => "users#allemploy"
    match "set" => "site#set"

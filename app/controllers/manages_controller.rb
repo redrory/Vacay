@@ -15,7 +15,7 @@ class ManagesController < ApplicationController
   # GET /manages/1.xml
   def show
     @title = "View All"
-  #  @manage = Manage.find(params[:id])
+    #@manage = Manage.find(params[:id])
      @manage = Manage.paginate(:page => params[:page])
 
     respond_to do |format|

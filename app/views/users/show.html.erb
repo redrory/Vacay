@@ -3,13 +3,58 @@
     <td class="main">
  
 <% unless @user.employees.empty? %>
-Employee approaching their anniversary.
-Employee with Max vacation days used.
-Employee with Max Sick days used.
+<%= link_to "Employee with Max vacation days used", "#", :id => "maxVacay" %>
+<%= link_to "Employee with Max Sick days used.", "#", :id => "maxSick" %>
+<%= link_to "Employee approaching their anniversary.", "#", :id => "anniversary" %>
+
         <table class="employees" summary="User employees">
+          <%#= render @employeesVacay %>
+		  
+
+
+		</table>
+		
+		<div id="MV">
+			<table class="employees" summary="User employees">
+
+			<% @employeesVacay.each do |vacay| %>
+			<td class="employee">
+					    <span class="content">	<b>Name: </b><%= vacay.name%> </span></span>
+						<span class="content"><b>Date of Employment: </b><%= vacay. doe%> <br /></span>
+						<span class="content"><b>Total Vacation Days: </b><%= vacay.vacayTotal%> </span>
+						<span class="content"><b>Vacation Days Used: </b><u><%= vacay. vacayUsed%> </u><br /></span>
+				</td></tr>
+			<% end %>
+
+			</table>
+		</div>
+
+		<div id="MS">
 			
-          <%= render @employees %>
-        </table>
+
+			<table class="employees" summary="User employees">
+			<% @employeesSick.each do |sick| %>
+			<td class="employee">
+					    <span class="content">	<b>Name: </b><%= sick.name%> </span></span>
+						<span class="content"><b>Date of Employment: </b><%= sick. doe%> <br /></span>
+						<span class="content"><b>Total Sick Days: </b><%= sick.sickTotal%> </span>
+						<span class="content"><b>Sick Days Used: </b><u><%= sick. sickUsed%> </u><br /></span>
+				</td></tr>
+		
+			<% end %>
+			</table>
+		</div>
+
+		<div id="AV">
+		
+			<% @maxEmployees.each do |anni| %>
+			Test DOE <%= anni.doe %>
+			<% end %>
+			<p><b>
+				<%= Date.today %>
+			</b>
+		</div>
+
         <%= will_paginate @employees %>
       <% end %>
     </td>
@@ -22,6 +67,5 @@ Employee with Max Sick days used.
     </td>
 		</div>
   </tr>
-
 
 </table>
