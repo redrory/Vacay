@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(:version => 20110418020441) do
     t.datetime "updated_at"
     t.string   "encrypted_password"
     t.string   "salt"
-    t.boolean  "admin",                             :default => false
-    t.string   "size",               :limit => nil
+    t.boolean  "admin",              :default => false
+    t.string   "size"
   end
 
 end
