@@ -12,8 +12,8 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       @title = @user.name
       @employees = @user.employees.paginate(:page => params[:page], :per_page => 4,:order => "name desc")
-      @employeesVacay = @user.employees.paginate(:page => params[:page], :per_page => 4,:order => "vacayUsed desc")
-      @employeesSick = @user.employees.paginate(:page => params[:page], :per_page => 4,:order => "sickUsed desc")
+      @employeesVacay = @user.employees.paginate(:page => params[:page], :per_page => 4)
+      @employeesSick = @user.employees.paginate(:page => params[:page], :per_page => 4)
      # @maxEmployees = Employee.order("name")
   end
     
