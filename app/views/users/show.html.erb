@@ -14,7 +14,17 @@
 
 		</table>
 		
-	
+		<div id="MV">
+			<table class="employees" summary="User employees">
+
+			<p><b>
+				<%= Date.today %>
+			</b>
+		</div>
+
+        <%= will_paginate @employees %>
+      <% end %>
+    </td>
 
 		<div id="sidebar">
 			
