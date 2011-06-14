@@ -5,10 +5,10 @@ Vacaytracker::Application.routes.draw do
 
   get "users/new"
 
-  resources :manages
+  #resources :manages
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
-  resources :employees, :only => [:create, :destroy]
+  resources :employees, :only => [:create, :destroy, :edit, :update]
 
   root :to => "site#home"
   
@@ -19,10 +19,13 @@ Vacaytracker::Application.routes.draw do
   match '/plans' => 'site#plans'
 
    match "manages2" => "manages#show"
-   match "manages" => "users#allemploy"
-    match "all" => "users#allemploy"
+   #match "manages" => "users#allemploy"
+   match "all" => "users#allemploy"
    match "set" => "site#set"
    match "report" => "site#report"
+
+   
+
 
    match '/signup' => 'users#new'
    match '/signin' => 'sessions#new'

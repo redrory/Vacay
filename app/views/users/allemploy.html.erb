@@ -1,7 +1,24 @@
 <%= link_to "Add Employee", "/new"%>
 <% unless @user.employees.empty? %>
         <table class="employees" summary="User employees">
-          <%= render @employees %>
+          <%#= render @manageEmployees %>
+
+			<% @employees.each do |employee| %>
+			<td class="employee">
+				Mic Test
+		    	<b>Name</b> <span class="content"><%= employee.name %></span>
+				<b>DOE</b> <span class="content"><%= employee.doe %></span>
+				<b>Vacay Used</b> <span class="content"><%= employee.vacayUsed %></span>
+				<b>Sick Used</b> <span class="content"><%= employee.sickUsed %></span> <%= link_to "Edit", edit_employee_path(employee.id) %>
+		 		<%= link_to "Delete", employee, :method => :delete, :confirm => "You sure?",
+				                                :title => "Delete #{employee.name}" %>		
+		    <span class="timestamp">
+		      Posted <%= time_ago_in_words(employee.created_at) %> ago.
+		    </span>
+		  	
+		</td>
+		</tr>
+		<% end %>
         </table>
         <%= will_paginate @employees %>
       <% end %>
