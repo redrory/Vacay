@@ -1,27 +1,28 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
-$(document).ready(function() { 
+
+jQuery(document).ready(function() { 
 	
-	$('a[id = "maxVacay"]').click(function(){
+	jQuery('a[id = "maxVacay"]').click(function(){
 		
-		$('#MV').show('slow');
-		$('#MS').hide('slow');
-		$('#AV').hide('slow');
+		jQuery('#MV').show('slow');
+		jQuery('#MS').hide('slow');
+		jQuery('#AV').hide('slow');
 	});
 	
-	$('a[id = "maxSick"]').click(function(){
+	jQuery('a[id = "maxSick"]').click(function(){
 	
-		$('#MV').hide('slow');
-		$('#MS').show('slow');
-		$('#AV').hide('slow');
+		jQuery('#MV').hide('slow');
+		jQuery('#MS').show('slow');
+		jQuery('#AV').hide('slow');
 
 	});
 	
-	$('a[id = "anniversary"]').click(function(){
+	jQuery('a[id = "anniversary"]').click(function(){
 	
-		$('#AV').show('slow');
-		$('#MV').hide('slow');
-		$('#MS').hide('slow');
+		jQuery('#AV').show('slow');
+		jQuery('#MV').hide('slow');
+		jQuery('#MS').hide('slow');
 
 	});
 		
