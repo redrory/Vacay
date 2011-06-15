@@ -43,9 +43,9 @@ class EmployeesController < ApplicationController
   
   def admin_user
     redirect_to (root_path) unless current_user.admin?
-    else
-      flash[:error] = "Invalid creditinals Yep-error"
-    end
+
+
+
   end
   
   
