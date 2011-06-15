@@ -6,7 +6,8 @@ class EmployeesController < ApplicationController
     @employee = current_user.employees.build(params[:employee])
     if @employee.save
         flash[:success] = "Employee created!"
-        redirect_to root_path
+        #redirect_to root_path
+        redirect_to :controller => "users", :action => "allemploy"
       else
         render 'pages/new'
   end
@@ -33,7 +34,7 @@ class EmployeesController < ApplicationController
   
   def destroy
     Employee.find(params[:id]).destroy
-    flash[:success] = "User destroyed."
+    flash[:success] = "User deleted."
 
     redirect_to :controller => "users", :action => "allemploy"
   end
