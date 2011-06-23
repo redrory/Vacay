@@ -1,0 +1,25 @@
+<%= @user.name%>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Date</th>
+
+  </tr>
+  <% for em in @emName %>
+    <tr>
+      <td><%=h em %></td>
+	  <td><%= Time.now %> </td>
+    </tr>
+    </tr>
+  <% end %>
+</table>
+<%#= 
+@emArray.name
+
+	
+	%>
+<%#= ann.name %>
+
+<%# end %>
+

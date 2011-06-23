@@ -1,0 +1,34 @@
+<div id="setForm">	
+<fieldset id="" class="">
+		<legend>Prompt me when</legend>
+		
+		*****	<%=@user.name%>*****
+		<% @emName = Array.new %>
+		<% @employees.each do |employ|%>
+	<li>	<% if Time.now.month == employ.doe.month && Time.now.day == employ.doe.day %>
+			
+ 			<%=  "Match, sending prompt via email = " + employ.name %>
+			<% 
+			
+			@emName = @emName.push(employ.name) 
+
+		#	@employeesArray = @employeesArray.push(employ.name)
+			#EmployeeMail.prompt_email(@user,@employeesArray).deliver %>
+		
+			<% else %>
+			<%=  "No employee anniversary, don't send email = "+ employ.name %>
+		<% end %>
+		
+	
+	
+		<% end %>
+		<% EmployeeMail.prompt_email(@user,@emName).deliver %>
+
+	<%#= simple_form_for @user do |f| %>
+		<%#= f.input :onyear, :label => "Employees has worked for one year.", :as => :radio%>					
+		<%#= f.input :anniversary, :label => "Employees has reached anniversary.", :as => :radio%>
+		<%#= f.input :max, :label => "Employees has reach the max amount of vacation/sick days" , :as => :radio%>
+    <%#= f.button :submit %>
+  <%# end %>
+</fieldset>
+</div>

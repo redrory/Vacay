@@ -24,6 +24,7 @@ Vacaytracker::Application.routes.draw do
    match "set" => "site#set"
    match "report" => "site#report"
 
+   match "prompt" => "site#prompt"
    
 
 

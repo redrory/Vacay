@@ -8,10 +8,19 @@ class SiteController < ApplicationController
     @title = "Manage Employees"
     @user = "Rory"
   end
-
+  
   def set
-    @title = "Set Prompts"
-    @user = "Rory"
+    @title = "Set user"
+    @user = "current_user"
+  end 
+
+  def prompt
+    
+    @user = current_user
+    @employees = @user.employees.paginate(:page => params[:page], :per_page => 15)
+    @title = @employees
+    #EmployeeMail.prompt_email(@user).deliver
+    
   end
   
   def about

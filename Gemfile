@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 require "rubygems"
 
+
 gem 'rails', '3.0.3'
 
 # Bundle edge Rails instead:
