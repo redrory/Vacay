@@ -15,12 +15,9 @@ class SiteController < ApplicationController
   end 
 
   def prompt
-    
     @user = current_user
     @employees = @user.employees.paginate(:page => params[:page], :per_page => 15)
-    @title = @employees
-    #EmployeeMail.prompt_email(@user).deliver
-    
+    @title = "Vacay Tracker"
   end
   
   def about

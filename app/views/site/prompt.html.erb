@@ -1,34 +1,80 @@
 <div id="setForm">	
-<fieldset id="" class="">
-		<legend>Prompt me when</legend>
-		
-		*****	<%=@user.name%>*****
-		<% @emName = Array.new %>
-		<% @employees.each do |employ|%>
-	<li>	<% if Time.now.month == employ.doe.month && Time.now.day == employ.doe.day %>
-			
- 			<%=  "Match, sending prompt via email = " + employ.name %>
-			<% 
-			
-			@emName = @emName.push(employ.name) 
-
-		#	@employeesArray = @employeesArray.push(employ.name)
-			#EmployeeMail.prompt_email(@user,@employeesArray).deliver %>
-		
-			<% else %>
-			<%=  "No employee anniversary, don't send email = "+ employ.name %>
-		<% end %>
-		
+	<fieldset id="" class="">
+	<legend>Prompt me when</legend>	
+	<!-- Variables-->
+	<%=
+		@user.name
+		@emName = Array.new 
+		@emNameAnni = Array.new
+		@emNameSick = Array.new
+	%>
 	
-	
-		<% end %>
-		<% EmployeeMail.prompt_email(@user,@emName).deliver %>
+	<% @employees.each do |employ|%>
+		<!-- Set one year prompt-->
+		<ol>
+			<% if Time.now.month == employ.doe.month && Time.now.day == employ.doe.day %>
+				<%=  "Match " + employ.name %>
+				<% 
+				@emNameAnni = @emNameAnni.push(employ.name) 
+				@emailValueAnni = "AnniPrompt"
+				%>
+				<% else %>
+					<li><%=  "No Match, no email for "+ employ.name %></li>
+				<% end %>
+				
+		<!-- Set Max Vacation prompt-->
+			<li>
+			Info for <%= employ.name %> Total Vacation Days = <%= employ.vacayTotal %>
+			Vacation Days Used =  <%= employ.vacayUsed %>
+				<% if employ.vacayUsed >= employ.vacayTotal 
+					@emName = @emName.push(employ.name)
+					
+					%>
+				<br><b> Max Vacay Prompt Sent</b>
+				<% @emailValueVacay = "vacayPrompt"%>
+				<% else %>
+					<br><b> Max Vacay Prompt NOT Sent </b>
+				<% end %>
+				
+		<!-- Set Max Sick day prompt-->
+			<li>
+			Info for <%= employ.name %> Total Sick Days = <%= employ.sickTotal %>
+			Sick Days Used =  <%= employ.sickUsed %>
+			<% if employ.sickUsed >= employ.sickTotal
+				@emNameSick = @emNameSick.push(employ.name)	
+				 %>
+				<br><u> Max Sick Day Prompt Sent</u>
+				<% @emailSick = "sickPrompt" %>
+				<% else %>
+				<br><u> Max Sick Day Prompt NOT Sent </u>
+				<% end %>
+				<% end %>
+			</ol>
+			
+			<!-- Send anniversary email -->
+			<% if @emailValueAnni == "AnniPrompt" %>
+			<% EmployeeMail.prompt_email(@user,@emNameAnni).deliver %>
+				Email sent
+				<% else %>
+				<p>"|| Will not send"
+			<%end %>
+			
+			   <!-- Send max Vacay email -->
+			<b><u>"Max Vacay not sent"</b><u/>
+			<% if @emailValueVacay = "emailValueVacay" %>
+			<% EmployeeMail.prompt_max_email(@user,@emName).deliver %>
+				<p><b><u>"|| Max Vacay Email has been sent to HR, email value =  <%= @emailValue%>"</b></u>		
+			<% else%>
+				bah bah
+			<%end %>	
+				
+		<!-- Send max Sick email -->
+		<% if @emailSick.nil? == true %>
+			<b><u>"Sick Not sent"</b><u/>
+		<% elsif @emailSick = "sickPrompt" %>
+			<p><b><u>"|| Max Sick Email has been sent to HR"</b></u>
+			<% EmployeeMail.prompt_max_sick_email(@user,@emNameSick).deliver %>
+			<%end %>
 
-	<%#= simple_form_for @user do |f| %>
-		<%#= f.input :onyear, :label => "Employees has worked for one year.", :as => :radio%>					
-		<%#= f.input :anniversary, :label => "Employees has reached anniversary.", :as => :radio%>
-		<%#= f.input :max, :label => "Employees has reach the max amount of vacation/sick days" , :as => :radio%>
-    <%#= f.button :submit %>
-  <%# end %>
 </fieldset>
 </div>

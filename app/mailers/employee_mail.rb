@@ -1,11 +1,29 @@
 class EmployeeMail < ActionMailer::Base
-  default :from => "vacaytracker@gmail.com"
+  default :from => "VacayTracker@gmail.com"
   
   def prompt_email(user,emName)
     @user = user
     @employee = @user.employees
 
-    @emName = emName
+    @emNameAnni = emName
     mail(:to => user.email, :subject => "Employee Anniversary Notice")
   end
+  
+  def prompt_max_email(user, emName)
+    @user = user
+    @employee = @user.employees
+    
+    @emName = emName
+    mail(:to => user.email, :subject => "Employee Passed Max Vacation")
+  end
+  
+  def prompt_max_sick_email(user, emName)
+    @user = user
+    @employee = @user.employees
+    
+    @emNameSick = emName
+    mail(:to => user.email, :subject => "Employee Passed Max Sick Days")
+  end
+  
+  
 end

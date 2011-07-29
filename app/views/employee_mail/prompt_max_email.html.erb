@@ -1,12 +1,12 @@
 <%= @user.name%>
 
 <table>
-  <tr>
+  <tr> This should be members who has exceeded their limits
     <th>Username</th>
     <th>Date</th>
 
   </tr>
-  <% for em in @emNameAnni %>
+  <% for em in @emName %>
     <tr>
       <td><%=h em %></td>
 	  <td><%= Time.now %> </td>
