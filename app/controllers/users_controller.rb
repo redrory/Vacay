@@ -34,7 +34,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:success] = "Welcome to Vacay Tracker"
+      flash[:success] = "Welcome to Vacay Tracker, Please login to get started"
+
       redirect_to @user
     else
       @title = "Sign up"

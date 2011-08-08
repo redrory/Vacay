@@ -7,8 +7,9 @@
 			<td class="employee">
 		    	<b>Name</b> <span class="content"><%= employee.name %></span>
 				<b>DOE</b> <span class="content"><%= employee.doe %></span>
-				<b>Vacay Used</b> <span class="content"><%= employee.vacayUsed %></span>
-				<b>Sick Used</b> <span class="content"><%= employee.sickUsed %></span> <%= link_to "Edit", edit_employee_path(employee.id) %>
+				<span class = "content"><b> Vacation Days Used:</b> <%= employee.vacayUsed %> of <%= employee.vacayTotal %><span>
+				<span class = "content"><b> Sick Days Used:</b> <%= employee.sickUsed %> of <%= employee.sickTotal %><span>
+				<%= link_to "Edit", edit_employee_path(employee.id) %>
 		 		<%= link_to "Delete", employee, :method => :delete, :confirm => "You sure?",
 				                                :title => "Delete #{employee.name}" %>		
 		    <span class="timestamp">

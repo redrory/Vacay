@@ -3,9 +3,10 @@
     <td class="main">
  
 <% unless @user.employees.empty? %>
-<%= link_to "Employee with Max vacation days used", "#", :id => "maxVacay" %>
-<%= link_to "Employee with Max Sick days used.", "#", :id => "maxSick" %>
-<%= link_to "Employee approaching their anniversary.", "#", :id => "anniversary" %>
+Sort by:
+<%= link_to "Most Vacation days used", "#", :id => "maxVacay" %> |
+<%= link_to "Max Sick days used", "#", :id => "maxSick" %> |
+<%= link_to "Anniversary.", "#", :id => "anniversary" %>
 
         <table class="employees" summary="User employees">
           <%#= render @employeesVacay %>
@@ -21,8 +22,8 @@
 			<td class="employee">
 					    <span class="content">	<b>Name: </b><%= vacay.name%> </span></span>
 						<span class="content"><b>Date of Employment: </b><%= vacay. doe%> <br /></span>
-						<span class="content"><b>Total Vacation Days: </b><%= vacay.vacayTotal%> </span>
-						<span class="content"><b>Vacation Days Used: </b><u><%= vacay. vacayUsed%> </u><br /></span>
+						<span class = "content"><b> Vacation Days Used:</b> <%= vacay.vacayUsed %> of <%= vacay.vacayTotal %><span>
+						<span class = "content"><b> Sick Days Used:</b> <%= vacay.sickUsed %> of <%= vacay.sickTotal %><span>	
 				</td></tr>
 			<% end %>
 
@@ -37,8 +38,8 @@
 			<td class="employee">
 					    <span class="content">	<b>Name: </b><%= sick.name%> </span></span>
 						<span class="content"><b>Date of Employment: </b><%= sick. doe%> <br /></span>
-						<span class="content"><b>Total Sick Days: </b><%= sick.sickTotal%> </span>
-						<span class="content"><b>Sick Days Used: </b><u><%= sick. sickUsed%> </u><br /></span>
+						<span class = "content"><b> Vacation Days Used:</b> <%= sick.vacayUsed %> of <%= sick.vacayTotal %><span>
+						<span class = "content"><b> Sick Days Used:</b> <%= sick.sickUsed %> of <%= sick.sickTotal %><span>
 				</td></tr>
 		
 			<% end %>
