@@ -61,9 +61,9 @@
 			
 			   <!-- Send max Vacay email -->
 			<b><u>"Max Vacay not sent"</b><u/>
-			<% if @emailValueVacay = "emailValueVacay" %>
+			<% if @emailValueVacay == "vacayPrompt" %>
 			<% EmployeeMail.prompt_max_email(@user,@emName).deliver %>
-				<p><b><u>"|| Max Vacay Email has been sent to HR, email value =  <%= @emailValue%>"</b></u>		
+				<p><b><u>"|| Max Vacay Email has been sent to HR, email value =  <%= @emailValueVacay%>"</b></u>		
 			<% else%>
 				bah bah
 			<%end %>	

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :authenticate, :only => [:index,:edit, :update, :destroy]
-  before_filter :correct_user, :only => [:edit, :update]
+  before_filter :authenticate, :only => [:index,:edit, :update, :destroy, :show]
+  before_filter :correct_user, :only => [:edit, :update, :show]
   before_filter :admin_user, :only => :destroy
   
   def index
@@ -73,13 +73,16 @@ class UsersController < ApplicationController
   def correct_user
     @user = User.find(params[:id])
     redirect_to (root_path) unless current_user?(@user)
-    flash[:error] = "Invalid creditinals"
-    
+    if @user == current_user
+
+    else
+      flash[:error] = "Invalid creditinals | not correct user"
+    end
   end
   
   def admin_user
     redirect_to(root_path) unless current_user.admin?
-    flash[:error] = "Invalid creditinals"
+    flash[:error] = "Invalid creditinals | not admin"
   end
 
   
