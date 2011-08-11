@@ -12,6 +12,7 @@ class SiteController < ApplicationController
   def set
     @title = "Set user"
     @user = "current_user"
+    @prompt = Prompt.new
   end 
 
   def prompt

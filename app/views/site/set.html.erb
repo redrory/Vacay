@@ -3,11 +3,17 @@
 		<legend>Prompt me when</legend>
 
 
-	<%= simple_form_for @user do |f| %>
-		<%= f.input :onyear, :label => "Employees has worked for one year.", :as => :radio%>					
+	<%#= simple_form_for  @user do |f|  %>
+	
+	<%= simple_form_for (@prompt), 
+	    :url => url_for(:action => 'create', :controller => 'prompts'),
+	    :method => 'post' do |f| %>
+	
+		
+		<%= f.input :onyear, :label => "Employees has worked for one year.", :as => :radio %>					
 		<%= f.input :anniversary, :label => "Employees has reached anniversary.", :as => :radio%>
 		<%= f.input :max, :label => "Employees has reach the max amount of vacation/sick days" , :as => :radio%>
-    <%= f.button :submit %>
+    <%= f.button :submit%>
   <% end %>
 </fieldset>
 </div>

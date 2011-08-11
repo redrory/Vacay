@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110418020441) do
+ActiveRecord::Schema.define(:version => 20110809013508) do
 
   create_table "employees", :force => true do |t|
     t.string   "name"
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(:version => 20110418020441) do
     t.integer  "cost"
     t.string   "details"
     t.integer  "limit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "prompts", :force => true do |t|
+    t.string   "onyear"
+    t.string   "anniversary"
+    t.boolean  "max"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
