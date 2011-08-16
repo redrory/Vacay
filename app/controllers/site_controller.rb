@@ -13,6 +13,7 @@ class SiteController < ApplicationController
     @title = "Set user"
     @user = "current_user"
     @prompt = Prompt.new
+    @prompts = Prompt.all
   end 
 
   def prompt

@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20110809013508) do
     t.string   "onyear"
     t.string   "anniversary"
     t.boolean  "max"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

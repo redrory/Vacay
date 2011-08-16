@@ -25,8 +25,10 @@ Vacaytracker::Application.routes.draw do
    match "manages2" => "manages#show"
    #match "manages" => "users#allemploy"
    match "all" => "users#allemploy"
-   match "set" => "site#set"
+   match "set" => "users#set"
    match "set2" => "prompts#create"
+   
+
    match "report" => "site#report"
 
    match "prompt" => "site#prompt"

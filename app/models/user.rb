@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :company, :size
   has_many :employees, :dependent => :destroy
   has_one :prompt
+  attr_accessible :onyear, :anniversary, :max, :user_id
 
 
 

@@ -61,6 +61,23 @@ class UsersController < ApplicationController
    
   end
   
+  def set
+    @user = current_user
+    begin
+      @prompt = Prompt.find_by_user_id(@user)
+      @prompt.update_attributes(params[:prompt])
+    rescue
+      @prompt = Prompt.new(params[:prompt])
+      @prompt.save
+    ensure 
+
+    end
+   #@prompt = Prompt.new(params[:prompt])
+   #@prompt.save
+  end
+    
+
+  
    def destroy
       User.find(params[:id]).destroy
       flash[:success] = "User deleted"

@@ -4,6 +4,7 @@ class CreatePrompts < ActiveRecord::Migration
       t.string :onyear
       t.string :anniversary
       t.boolean :max
+      t.integer :user_id
       
       t.timestamps
     end
