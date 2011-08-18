@@ -24,7 +24,7 @@
     <%= will_paginate @employees %>
 
 	<%= simple_form_for @user do |f| %>
-		<%= f.input :onyear, :label => "Employees has worked for one year.", :as => :radio%>					
+		<%= f.input :onyear, :label => "Employees has worked TEST  for one year.", :as => :radio%>					
 		<%= f.input :anniversary, :label => "Employees has reached anniversary.", :as => :radio%>
 		<%= f.input :max, :label => "Employees has reach the max amount of vacation/sick days" , :as => :radio%>
     <%= f.button :submit %>

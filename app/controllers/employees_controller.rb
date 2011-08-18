@@ -13,6 +13,10 @@ class EmployeesController < ApplicationController
   end
   end
   
+  def new
+    @title = "Home"
+    @employee = Employee.new if signed_in?
+  end
   def edit  
    @employee = Employee.find(params[:id])
     #@employee = current_user.employees.build(params[:employee])
