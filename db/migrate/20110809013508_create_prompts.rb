@@ -3,7 +3,7 @@ class CreatePrompts < ActiveRecord::Migration
     create_table :prompts do |t|
       t.string :onyear
       t.string :anniversary
-      t.boolean :max
+      t.string :max
       t.integer :user_id
       
       t.timestamps

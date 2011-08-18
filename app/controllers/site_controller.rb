@@ -20,6 +20,10 @@ class SiteController < ApplicationController
     @user = current_user
     @employees = @user.employees.paginate(:page => params[:page], :per_page => 15)
     @title = "Vacay Tracker"
+    @prompts = Prompt.all
+    @all_user = User.select("name")
+
+    #@prompts = Prompt.where("user_id = @user ")
   end
   
   def about

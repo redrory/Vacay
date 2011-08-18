@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(:version => 20110809013508) do
   create_table "prompts", :force => true do |t|
     t.string   "onyear"
     t.string   "anniversary"
-    t.boolean  "max"
+    t.string   "max"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

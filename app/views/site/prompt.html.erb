@@ -8,7 +8,6 @@
 		@emNameAnni = Array.new
 		@emNameSick = Array.new
 	%>
-	
 	<% @employees.each do |employ|%>
 		<!-- Set one year prompt-->
 		<ol>
@@ -50,18 +49,29 @@
 				<% end %>
 				<% end %>
 			</ol>
+		
+		<% @prompts.each do |prompt|%>
+
+		<p><b>User ID</b> <%= prompt.user_id  %> </p>
+			One Year Prompt : <%= @onyearValue = prompt.onyear %> </br>
+			Anniversary : <%= @anniValue = prompt.anniversary %></br>
+			Max : <%= @maxValue = prompt.max %> </br>
 			
+				<% end %>
+		
+	
+		
 			<!-- Send anniversary email -->
-			<% if @emailValueAnni == "AnniPrompt" %>
+			<% if @emailValueAnni == "AnniPrompt" && @anniValue == "true"  %>
 			<% EmployeeMail.prompt_email(@user,@emNameAnni).deliver %>
-				Email sent
+				Email sent <%= @all_user.all %>
 				<% else %>
 				<p>"|| Will not send"
 			<%end %>
 			
 			   <!-- Send max Vacay email -->
 			<b><u>"Max Vacay not sent"</b><u/>
-			<% if @emailValueVacay == "vacayPrompt" %>
+			<% if @emailValueVacay == "vacayPrompt" && @maxValue == "true" %>
 			<% EmployeeMail.prompt_max_email(@user,@emName).deliver %>
 				<p><b><u>"|| Max Vacay Email has been sent to HR, email value =  <%= @emailValueVacay%>"</b></u>		
 			<% else%>
@@ -71,10 +81,13 @@
 		<!-- Send max Sick email -->
 		<% if @emailSick.nil? == true %>
 			<b><u>"Sick Not sent"</b><u/>
-		<% elsif @emailSick = "sickPrompt" %>
+		<% elsif @emailSick = "sickPrompt" && @maxValue == "true" %>
 			<p><b><u>"|| Max Sick Email has been sent to HR"</b></u>
 			<% EmployeeMail.prompt_max_sick_email(@user,@emNameSick).deliver %>
 			<%end %>
+			
+
+	
 
 </fieldset>
 </div>

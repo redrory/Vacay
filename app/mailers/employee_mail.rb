@@ -3,6 +3,7 @@ class EmployeeMail < ActionMailer::Base
   
   def prompt_email(user,emName)
     @user = user
+    @all_user = User.select("email")
     @employee = @user.employees
 
     @emNameAnni = emName

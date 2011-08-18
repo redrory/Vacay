@@ -72,8 +72,6 @@ class UsersController < ApplicationController
     ensure 
 
     end
-   #@prompt = Prompt.new(params[:prompt])
-   #@prompt.save
   end
     
 
