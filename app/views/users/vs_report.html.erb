@@ -1,0 +1,47 @@
+<h2><%= @user.company %> Vacation VS Sick Days Report</h2>
+
+<div id="reports">
+	<table border="1">
+	  <tr>
+	    <th>Name</th>
+	    <th>Vacay Days Taken</th>
+		<th>Vacay Days Left</th>
+		<th>Sick Days Taken</th>
+		<th>Sick Days Left</th>
+		
+	  </tr>
+	<% @vacayUCount = 0 
+	   @vacayTCount = 0
+	   @sickUCount = 0
+	   @sickTCount = 0
+	 %>
+	
+	
+		<% @employees.each do |vacay| %>
+	  <tr>
+	    <td><%= vacay.name %></td>
+	    <td><%= vacay.vacayUsed %></td> <% @vacayUCount = @vacayUCount + vacay.vacayUsed %>
+		<td> <% @vacaySum = vacay.vacayTotal - vacay.vacayUsed %> <%=@vacaySum %><% @vacayTCount = @vacayTCount + @vacaySum %>
+		<td><%= vacay.sickUsed %></td> <% @sickUCount = @sickUCount + vacay.sickUsed %>
+		<td> <% @sickSum = vacay.sickTotal - vacay.sickUsed %> <%= @sickSum %> <% @sickTCount = @sickTCount + @sickSum %>
+
+			<%end%>
+			
+	   </td>
+	  </tr></td> 
+	
+	<tr>
+		<th>Total</th>
+		<th><%= @vacayUCount%></th>
+		<th><%= @vacayTCount%></th>	
+		<th><%= @sickUCount%></th>
+		
+		<th><%= @sickSum%></th>
+	</tr>
+	</table>
+
+
+
+</div>	
+	
+

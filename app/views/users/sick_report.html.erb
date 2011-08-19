@@ -1,0 +1,24 @@
+<h2><%= @user.company %> Sick Days Report</h2>
+
+<div id="reports">
+	<table border="1">
+	  <tr>
+	    <th>Name</th>
+	    <th>Sick Days Taken</th>
+		<th>Sick Days Left</th>
+	  </tr>
+		<% @employees.each do |vacay| %>
+	  <tr>
+	    <td><%= vacay.name %></td>
+	    <td><%= vacay.sickUsed %></td>
+		<td> <%=  vacay.sickTotal - vacay.sickUsed %> 
+			<%end%>
+	   </td>
+	  </tr>
+	</table>
+
+
+
+</div>	
+	
+

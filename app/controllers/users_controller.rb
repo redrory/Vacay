@@ -73,7 +73,24 @@ class UsersController < ApplicationController
 
     end
   end
-    
+  
+  def vacay_report
+    @user = current_user
+    @employees = @user.employees.paginate(:page => params[:page], :per_page => 5)
+  end
+  
+  def sick_report
+    @user = current_user
+    @employees = @user.employees.paginate(:page => params[:page], :per_page => 5)
+  end
+  
+  def vs_report
+     @user = current_user
+     @employees = @user.employees.paginate(:page => params[:page], :per_page => 5)
+   end
+  
+  
+  
 
   
    def destroy
