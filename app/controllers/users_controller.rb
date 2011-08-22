@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       @title = @user.name
       @employees = @user.employees.paginate(:page => params[:page], :per_page => 4,:order => "name desc")
     # @employeesVacay = @user.employees.paginate(:page => params[:page], :per_page => 4,:order => "vacayUsed desc")
-      @employeesVacay = @user.employees.paginate(:page => params[:page], :per_page => 4)
+      @employeesVacay = @user.employees.paginate(:page => params[:page], :per_page => 4).order("vacayUsed desc")
      # @employeesSick = @user.employees.paginate(:page => params[:page], :per_page => 4,:order => "sickUsed desc")
       @employeesSick = @user.employees.paginate(:page => params[:page], :per_page => 4)
      # @maxEmployees = Employee.order("name")
@@ -77,7 +77,7 @@ class UsersController < ApplicationController
   def vacay_report
     @user = current_user
     @employees = @user.employees
-    @employeesVDT = @user.employees.order("vacayUsed desc")
+    @employeesVDT = @user.employees.order('"vacayUsed" desc')
     @employeesVDL = @user.employees.order("vacayTotal - vacayUsed desc")
   end
   
