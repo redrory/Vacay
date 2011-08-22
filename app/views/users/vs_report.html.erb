@@ -21,9 +21,23 @@
 	  <tr>
 	    <td><%= vacay.name %></td>
 	    <td><%= vacay.vacayUsed %></td> <% @vacayUCount = @vacayUCount + vacay.vacayUsed %>
-		<td> <% @vacaySum = vacay.vacayTotal - vacay.vacayUsed %> <%=@vacaySum %><% @vacayTCount = @vacayTCount + @vacaySum %>
+		<td> <% @vacaySum = vacay.vacayTotal - vacay.vacayUsed %> <%=@vacaySum %>
+			
+			<% if @vacaySum >= 0 %>
+			<% @vacayTCount = @vacayTCount + @vacaySum %>
+			<% else %>
+			*
+			<% end %>
+			
 		<td><%= vacay.sickUsed %></td> <% @sickUCount = @sickUCount + vacay.sickUsed %>
-		<td> <% @sickSum = vacay.sickTotal - vacay.sickUsed %> <%= @sickSum %> <% @sickTCount = @sickTCount + @sickSum %>
+		<td> <% @sickSum = vacay.sickTotal - vacay.sickUsed %> <%= @sickSum %> 
+			
+			<% if @sickSum >= 0 %>
+			<% @sickTCount = @sickTCount + @sickSum %>
+			<% else %>
+			*
+			<% end %>
+			
 
 			<%end%>
 			
@@ -35,8 +49,7 @@
 		<th><%= @vacayUCount%></th>
 		<th><%= @vacayTCount%></th>	
 		<th><%= @sickUCount%></th>
-		
-		<th><%= @sickSum%></th>
+		<th><%= @sickTCount%></th>
 	</tr>
 	</table>
 

@@ -1,5 +1,11 @@
 <h2><%= @user.company %> Sick Days Report</h2>
 
+<% 
+   @sickUCount = 0
+   @sickTCount = 0
+ %>
+
+
 <div id="reports">
 	<table border="1">
 	  <tr>
@@ -10,11 +16,23 @@
 		<% @employees.each do |vacay| %>
 	  <tr>
 	    <td><%= vacay.name %></td>
-	    <td><%= vacay.sickUsed %></td>
-		<td> <%=  vacay.sickTotal - vacay.sickUsed %> 
+	    <td><%= vacay.sickUsed %></td> <% @sickUCount = @sickUCount + vacay.sickUsed %>
+		<td><% @sickSum = vacay.sickTotal - vacay.sickUsed %><%=@sickSum %>
+		
+			<% if @sickSum >= 0 %>
+			<% @sickTCount = @sickTCount + @sickSum %>
+			<% else %>
+			* 
+			<% end %>
+			 
 			<%end%>
 	   </td>
 	  </tr>
+	<tr>
+		<th>Total</th>
+		<th><%= @sickUCount%></th>
+		<th><%= @sickTCount%></th>	
+	</tr>
 	</table>
 
 

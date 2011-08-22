@@ -25,5 +25,14 @@ jQuery(document).ready(function() {
 		jQuery('#MS').hide('slow');
 
 	});
+	
+	jQuery('a[id = "VDT"]').click(function(){
+	
+
+		jQuery('#vacayLeft').show('slow');
+		//jQuery('#MV').hide('slow');
+		//jQuery('#MS').hide('slow');
+
+	});
 		
 });
