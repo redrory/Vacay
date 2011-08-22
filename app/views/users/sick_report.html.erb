@@ -1,42 +1,113 @@
-<h2><%= @user.company %> Sick Days Report</h2>
+<h2><%= @user.company %> Vacation Days Report</h2>
+Sort by:
+<%= link_to "Most Sick days taken", "#", :id => "SDT" %> | <%= link_to "Most Sick days left", "#", :id => "SDL" %>
 
-<% 
-   @sickUCount = 0
-   @sickTCount = 0
- %>
+	<% @vacayUCount = 0 
+	   @vacayTCount = 0
+	   @sickUCount = 0
+	   @sickTCount = 0
+	
+	  @vacayUCountSDT = 0 
+	   @vacayTCountSDT = 0
+	   @sickUCountSDT = 0
+	   @sickTCountSDT = 0
+	
+	   @vacayUCountSDL = 0 
+	   @vacayTCountSDL = 0
+	   @sickUCountSDL = 0
+	   @sickTCountSDL = 0
+	 %>
 
+	<div id="normal">
+		<table border="1">
+		  <tr>
+		    <th>Name</th>
+		    <th>Sick Days Taken</th>
+			<th>Sick Days Left</th>
+		  </tr>
+			<% @employees.each do |vacay| %>
+		  <tr>
+		    <td><%= vacay.name %></td>
+		    <td><%= vacay.sickUsed %></td> <% @sickUCount = @sickUCount + vacay.sickUsed %>
+			<td>  <% @sickSum = vacay.sickTotal - vacay.sickUsed %><%=@sickSum %>
 
-<div id="reports">
+				<% if @sickSum >= 0 %>
+				<% @sickTCount = @sickTCount + @sickSum %>
+				<% else %>
+				*
+				<% end %>
+
+				<%end%>
+		   </td>
+		  </tr>
+
+		<tr>
+			<th>Total</th>
+			<th><%= @sickUCount%></th>
+			<th><%= @sickTCount%></th>	
+		</tr>
+		</table>
+	</div>	<!--# end sickTaken -->
+
+<div id="sickTaken">
 	<table border="1">
 	  <tr>
 	    <th>Name</th>
 	    <th>Sick Days Taken</th>
 		<th>Sick Days Left</th>
 	  </tr>
-		<% @employees.each do |vacay| %>
+		<% @employeesSDT.each do |vacay| %>
 	  <tr>
 	    <td><%= vacay.name %></td>
-	    <td><%= vacay.sickUsed %></td> <% @sickUCount = @sickUCount + vacay.sickUsed %>
-		<td><% @sickSum = vacay.sickTotal - vacay.sickUsed %><%=@sickSum %>
+	    <td><%= vacay.sickUsed %></td> <% @sickUCountSDT = @sickUCountSDT + vacay.sickUsed %>
+		<td>  <% @sickSumSDT = vacay.sickTotal - vacay.sickUsed %><%=@sickSumSDT %>
 		
-			<% if @sickSum >= 0 %>
-			<% @sickTCount = @sickTCount + @sickSum %>
+			<% if @sickSumSDT >= 0 %>
+			<% @sickTCountSDT = @sickTCountSDT + @sickSumSDT %>
 			<% else %>
-			* 
+			*
 			<% end %>
-			 
+			
 			<%end%>
 	   </td>
 	  </tr>
+	
 	<tr>
 		<th>Total</th>
-		<th><%= @sickUCount%></th>
-		<th><%= @sickTCount%></th>	
+		<th><%= @sickUCountSDT%></th>
+		<th><%= @sickTCountSDT%></th>	
 	</tr>
 	</table>
-
-
-
-</div>	
+</div>	<!--# end sickTaken -->
 	
+<div id="sickLeft">
+	<table border="1">
+	  <tr>
+	    <th>Name</th>
+	    <th>Sick Days Taken</th>
+		<th>Sick Days Left</th>
+	  </tr>
+		<% @employeesSDL.each do |vacay| %>
+	  <tr>
+	    <td><%= vacay.name %></td>
+	    <td><%= vacay.sickUsed %></td> <% @sickUCountSDL = @sickUCountSDL + vacay.sickUsed %>
+		<td>  <% @sickSumSDL = vacay.sickTotal - vacay.sickUsed %><%=@sickSumSDL %>
+		
+			<% if @sickSumSDL >= 0 %>
+			<% @sickTCountSDL = @sickTCountSDL + @sickSumSDL %>
+			<% else %>
+			*
+			<% end %>
+			
+			<%end%>
+	   </td>
+	  </tr>
+	
+	<tr>
+		<th>Total</th>
+		<th><%= @sickUCountSDL %></th>
+		<th><%= @sickTCountSDL %></th>	
+	</tr>
+	</table>
+</div><!-- end sickLeft	-->
 

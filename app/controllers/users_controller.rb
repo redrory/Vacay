@@ -77,12 +77,18 @@ class UsersController < ApplicationController
   def vacay_report
     @user = current_user
     @employees = @user.employees
+    @employeesVDT = @user.employees.order("vacayUsed desc")
+    @employeesVDL = @user.employees.order("vacayTotal - vacayUsed desc")
   end
   
   def sick_report
     @user = current_user
     @employees = @user.employees
+    @employeesSDT = @user.employees.order("sickUsed desc")
+    @employeesSDL = @user.employees.order("sickTotal - sickUsed desc")
   end
+  
+  
   
   def vs_report
      @user = current_user

@@ -1,28 +1,69 @@
 <h2><%= @user.company %> Vacation Days Report</h2>
 Sort by:
-<%= link_to "Most Vacation days left", "#", :id => "VDT" %> |
+<%= link_to "Most Vacation days taken", "#", :id => "VDT" %> | <%= link_to "Most Vacation days left", "#", :id => "VDL" %>
 
 	<% @vacayUCount = 0 
 	   @vacayTCount = 0
 	   @sickUCount = 0
 	   @sickTCount = 0
+	
+	  @vacayUCountVDT = 0 
+	   @vacayTCountVDT = 0
+	   @sickUCountVDT = 0
+	   @sickTCountVDT = 0
+	
+	   @vacayUCountVDL = 0 
+	   @vacayTCountVDL = 0
+	   @sickUCountVDL = 0
+	   @sickTCountVDL = 0
 	 %>
 
-<div id="vacayLeft">
+	<div id="normal">
+		<table border="1">
+		  <tr>
+		    <th>Name</th>
+		    <th>Vacay Days Taken</th>
+			<th>Vacay Days Left</th>
+		  </tr>
+			<% @employees.each do |vacay| %>
+		  <tr>
+		    <td><%= vacay.name %></td>
+		    <td><%= vacay.vacayUsed %></td> <% @vacayUCount = @vacayUCount + vacay.vacayUsed %>
+			<td>  <% @vacaySum = vacay.vacayTotal - vacay.vacayUsed %><%=@vacaySum %>
+
+				<% if @vacaySum >= 0 %>
+				<% @vacayTCount = @vacayTCount + @vacaySum %>
+				<% else %>
+				*
+				<% end %>
+
+				<%end%>
+		   </td>
+		  </tr>
+
+		<tr>
+			<th>Total</th>
+			<th><%= @vacayUCount%></th>
+			<th><%= @vacayTCount%></th>	
+		</tr>
+		</table>
+	</div>	<!--# end vacayTaken -->
+
+<div id="vacayTaken">
 	<table border="1">
 	  <tr>
 	    <th>Name</th>
 	    <th>Vacay Days Taken</th>
 		<th>Vacay Days Left</th>
 	  </tr>
-		<% @employees.each do |vacay| %>
+		<% @employeesVDT.each do |vacay| %>
 	  <tr>
 	    <td><%= vacay.name %></td>
-	    <td><%= vacay.vacayUsed %></td> <% @vacayUCount = @vacayUCount + vacay.vacayUsed %>
-		<td>  <% @vacaySum = vacay.vacayTotal - vacay.vacayUsed %><%=@vacaySum %>
+	    <td><%= vacay.vacayUsed %></td> <% @vacayUCountVDT = @vacayUCountVDT + vacay.vacayUsed %>
+		<td>  <% @vacaySumVDT = vacay.vacayTotal - vacay.vacayUsed %><%=@vacaySumVDT %>
 		
-			<% if @vacaySum >= 0 %>
-			<% @vacayTCount = @vacayTCount + @vacaySum %>
+			<% if @vacaySumVDT >= 0 %>
+			<% @vacayTCountVDT = @vacayTCountVDT + @vacaySumVDT %>
 			<% else %>
 			*
 			<% end %>
@@ -33,13 +74,40 @@ Sort by:
 	
 	<tr>
 		<th>Total</th>
-		<th><%= @vacayUCount%></th>
-		<th><%= @vacayTCount%></th>	
+		<th><%= @vacayUCountVDT%></th>
+		<th><%= @vacayTCountVDT%></th>	
 	</tr>
 	</table>
-
-
-
-</div>	
+</div>	<!--# end vacayTaken -->
 	
+<div id="vacayLeft">
+	<table border="1">
+	  <tr>
+	    <th>Name</th>
+	    <th>Vacay Days Taken</th>
+		<th>Vacay Days Left</th>
+	  </tr>
+		<% @employeesVDL.each do |vacay| %>
+	  <tr>
+	    <td><%= vacay.name %></td>
+	    <td><%= vacay.vacayUsed %></td> <% @vacayUCountVDL = @vacayUCountVDL + vacay.vacayUsed %>
+		<td>  <% @vacaySumVDL = vacay.vacayTotal - vacay.vacayUsed %><%=@vacaySumVDL %>
+		
+			<% if @vacaySumVDL >= 0 %>
+			<% @vacayTCountVDL = @vacayTCountVDL + @vacaySumVDL %>
+			<% else %>
+			*
+			<% end %>
+			
+			<%end%>
+	   </td>
+	  </tr>
+	
+	<tr>
+		<th>Total</th>
+		<th><%= @vacayUCountVDL %></th>
+		<th><%= @vacayTCountVDL %></th>	
+	</tr>
+	</table>
+</div><!-- end vacayLeft	-->
 

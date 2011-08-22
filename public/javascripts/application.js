@@ -28,10 +28,33 @@ jQuery(document).ready(function() {
 	
 	jQuery('a[id = "VDT"]').click(function(){
 	
+		jQuery('#normal').hide('slow');
+		jQuery('#vacayTaken').show('slow');
+		jQuery('#vacayLeft').hide('slow');
 
+	});
+	
+	jQuery('a[id = "VDL"]').click(function(){
+	
+		jQuery('#normal').hide('slow');
+		jQuery('#vacayTaken').hide('slow');
 		jQuery('#vacayLeft').show('slow');
-		//jQuery('#MV').hide('slow');
-		//jQuery('#MS').hide('slow');
+
+	});
+	
+	jQuery('a[id = "SDT"]').click(function(){
+	
+		jQuery('#normal').hide('slow');
+		jQuery('#sickTaken').show('slow');
+		jQuery('#sickLeft').hide('slow');
+
+	});
+	
+	jQuery('a[id = "SDL"]').click(function(){
+	
+		jQuery('#normal').hide('slow');
+		jQuery('#sickTaken').hide('slow');
+		jQuery('#sickLeft').show('slow');
 
 	});
 		
