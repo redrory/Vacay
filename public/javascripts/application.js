@@ -7,22 +7,25 @@ jQuery(document).ready(function() {
 		
 		jQuery('#MV').show('slow');
 		jQuery('#MS').hide('slow');
-		jQuery('#AV').hide('slow');
+		jQuery('#DE').hide('slow');
+		jQuery('#created_at').hide('slow');
 	});
 	
 	jQuery('a[id = "maxSick"]').click(function(){
 	
 		jQuery('#MV').hide('slow');
 		jQuery('#MS').show('slow');
-		jQuery('#AV').hide('slow');
+		jQuery('#DE').hide('slow');
+		jQuery('#created_at').hide('slow');
 
 	});
 	
-	jQuery('a[id = "anniversary"]').click(function(){
-	
-		jQuery('#AV').show('slow');
+	jQuery('a[id = "doe"]').click(function(){
+		
 		jQuery('#MV').hide('slow');
 		jQuery('#MS').hide('slow');
+		jQuery('#DE').show('slow');
+		jQuery('#created_at').hide('slow');
 
 	});
 	
@@ -32,6 +35,7 @@ jQuery(document).ready(function() {
 		jQuery('#vacayTaken').show('slow');
 		jQuery('#vacayLeft').hide('slow');
 
+
 	});
 	
 	jQuery('a[id = "VDL"]').click(function(){
@@ -40,6 +44,7 @@ jQuery(document).ready(function() {
 		jQuery('#vacayTaken').hide('slow');
 		jQuery('#vacayLeft').show('slow');
 
+
 	});
 	
 	jQuery('a[id = "SDT"]').click(function(){
@@ -47,6 +52,7 @@ jQuery(document).ready(function() {
 		jQuery('#normal').hide('slow');
 		jQuery('#sickTaken').show('slow');
 		jQuery('#sickLeft').hide('slow');
+		
 
 	});
 	
@@ -57,5 +63,7 @@ jQuery(document).ready(function() {
 		jQuery('#sickLeft').show('slow');
 
 	});
+	
+
 		
 });

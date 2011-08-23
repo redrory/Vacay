@@ -11,12 +11,12 @@ class UsersController < ApplicationController
   def show
       @user = User.find(params[:id])
       @title = @user.name
-      @employees = @user.employees.paginate(:page => params[:page], :per_page => 4,:order => "name desc")
-    # @employeesVacay = @user.employees.paginate(:page => params[:page], :per_page => 4,:order => "vacayUsed desc")
+      @employees = @user.employees.paginate(:page => params[:page], :per_page => 4,:order => '"created_at" asc')
       @employeesVacay = @user.employees.paginate(:page => params[:page], :per_page => 4,:order =>'"vacayUsed" desc')
-     # @employeesSick = @user.employees.paginate(:page => params[:page], :per_page => 4,:order => "sickUsed desc")
       @employeesSick = @user.employees.paginate(:page => params[:page], :per_page => 4,:order =>'"sickUsed" desc')
-     # @maxEmployees = Employee.order("name")
+      @employeesDOE = @user.employees.paginate(:page => params[:page], :per_page => 4,:order =>'"doe" asc')
+
+
   end
     
   def new

@@ -254,7 +254,7 @@ padding-top:0px;
 	display:none;
 }
 
-#AV
+#AV, #MV
 {
 	display:none;
 }
@@ -281,3 +281,7 @@ padding-top:0px;
 	display:none;
 }
 
+#DE
+{
+	display:none;
+}

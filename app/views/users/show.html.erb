@@ -6,7 +6,7 @@
 Sort by:
 <%= link_to "Most Vacation days used", "#", :id => "maxVacay" %> |
 <%= link_to "Max Sick days used", "#", :id => "maxSick" %> |
-<%= link_to "Anniversary.", "#", :id => "anniversary" %>
+<%= link_to "Date of Employment", "#", :id => "doe" %>
 
         <table class="employees" summary="User employees">
           <%#= render @employeesVacay %>
@@ -15,6 +15,21 @@ Sort by:
 
 		</table>
 		
+			<div id="created_at">
+				<table class="employees" summary="User employees">
+
+				<% @employees.each do |vacay| %>
+				<td class="employee">
+						<span class="content">	<b>Name: </b><%= vacay.name%> </span></span>
+						<span class="content"><b>Date of Employment: </b><%= vacay. doe%> <br /></span>
+						<span class = "content"><b> <u>Vacation Days Used:</u></b> <%= vacay.vacayUsed %> of <%= vacay.vacayTotal %><span>
+						<span class = "content"><b> Sick Days Used:</b> <%= vacay.sickUsed %> of <%= vacay.sickTotal %><span>	
+					</td></tr>
+				<% end %>
+
+				</table>
+			</div>
+		
 		<div id="MV">
 			<table class="employees" summary="User employees">
 
@@ -22,7 +37,7 @@ Sort by:
 			<td class="employee">
 					    <span class="content">	<b>Name: </b><%= vacay.name%> </span></span>
 						<span class="content"><b>Date of Employment: </b><%= vacay. doe%> <br /></span>
-						<span class = "content"><b> Vacation Days Used:</b> <%= vacay.vacayUsed %> of <%= vacay.vacayTotal %><span>
+						<span class = "content"><b> <u>Vacation Days Used:</u></b> <%= vacay.vacayUsed %> of <%= vacay.vacayTotal %><span>
 						<span class = "content"><b> Sick Days Used:</b> <%= vacay.sickUsed %> of <%= vacay.sickTotal %><span>	
 				</td></tr>
 			<% end %>
@@ -39,23 +54,28 @@ Sort by:
 					    <span class="content">	<b>Name: </b><%= sick.name%> </span></span>
 						<span class="content"><b>Date of Employment: </b><%= sick. doe%> <br /></span>
 						<span class = "content"><b> Vacation Days Used:</b> <%= sick.vacayUsed %> of <%= sick.vacayTotal %><span>
-						<span class = "content"><b> Sick Days Used:</b> <%= sick.sickUsed %> of <%= sick.sickTotal %><span>
+						<span class = "content"><b> <u>Sick Days Used</u>:</b> <%= sick.sickUsed %> of <%= sick.sickTotal %><span>
 				</td></tr>
 		
 			<% end %>
 			</table>
 		</div>
 
-		<!--<div id="AV">
-		
-			<%# @maxEmployees.each do |anni| %>
-			Test DOE <%#= anni.doe %>
-			<%# end %>
-			<p><b>
-				<%#= Date.today %>
-			</b>
+		<div id="DE">
+			<table class="employees" summary="User employees">
+
+			<% @employeesDOE.each do |vacay| %>
+			<td class="employee">
+					    <span class="content">	<b>Name: </b><%= vacay.name%> </span></span>
+						<span class="content"><b><u>Date of Employment</u>: </b><%= vacay. doe%> <br /></span>
+						<span class = "content"><b> Vacation Days Used:</b> <%= vacay.vacayUsed %> of <%= vacay.vacayTotal %><span>
+						<span class = "content"><b> Sick Days Used:</b> <%= vacay.sickUsed %> of <%= vacay.sickTotal %><span>	
+				</td></tr>
+			<% end %>
+
+			</table>
 		</div>
-		-->
+	
         <%= will_paginate @employees %>
       <% end %>
     </td>
