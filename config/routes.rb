@@ -16,7 +16,8 @@ Vacaytracker::Application.routes.draw do
   match '/plans' => 'site#plans'
   match '/new' => 'employees#new'
   match "all" => "users#allemploy"
-  match "set" => "users#set"
+  match "set2" => "users#set"
+  match "set" => "users#new_prompt"
   match "report" => "site#report"
   match "prompt" => "site#prompt"
   match '/signup' => 'users#new'

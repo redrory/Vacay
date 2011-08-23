@@ -53,7 +53,7 @@
 		<% @prompts.each do |prompt|%>
 
 		<p><b>User ID</b> <%= prompt.user_id  %> </p>
-			One Year Prompt : <%= @onyearValue = prompt.onyear %> </br>
+			<%= @user.name %>One Year Prompt : <%= @onyearValue = prompt.onyear %> </br>
 			Anniversary : <%= @anniValue = prompt.anniversary %></br>
 			Max : <%= @maxValue = prompt.max %> </br>
 			
