@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :employees, :dependent => :destroy
   has_one :prompt
   attr_accessible :onyear, :anniversary, :max, :user_id
-
+  
 
 
   validates :name,  :presence => true,

@@ -13,7 +13,6 @@ class EmployeeMail < ActionMailer::Base
   def prompt_max_email(user, emName)
     @user = user
     @employee = @user.employees
-    
     @emName = emName
     mail(:to => user.email, :subject => "Employee Passed Max Vacation")
   end

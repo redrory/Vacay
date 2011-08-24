@@ -1,15 +1,16 @@
-<%= @user.name%>
+Hi <%= @user.name%>,
+<p>The following employees has exceeded their allotted vacation days.</p>
 
 <table>
-  <tr> This should be members who has exceeded their limits
-    <th>Username</th>
-    <th>Date</th>
+  <tr> 
+    <th>Employee Name </th>
+    <th>Vacation Days</th>
 
   </tr>
   <% for em in @emName %>
     <tr>
-      <td><%=h em %></td>
-	  <td><%= Time.now %> </td>
+      <td><%= h em %></td>
+	  <td><%= Time.now%> </td>
     </tr>
     </tr>
   <% end %>

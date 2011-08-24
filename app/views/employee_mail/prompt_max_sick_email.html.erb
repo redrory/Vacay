@@ -1,9 +1,10 @@
-<%= @user.name%>
+Hi <%= @user.name%>,
+<p>The following employees has exceeded their allotted sick days.</p>
 
 <table>
   <tr>
-    <th>Username</th>
-    <th>Date</th>
+    <th>Employee Name</th>
+    <th>Sick Days</th>
 
   </tr>
   <% for em in @emNameSick %>
