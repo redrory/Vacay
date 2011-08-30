@@ -63,9 +63,17 @@ class UsersController < ApplicationController
   
   def new_prompt
        @user = current_user
-       @title = "Awesome prompt"
-       @prompt = Prompt.find_by_user_id(@user)
+       begin
+         @prompt = Prompt.find_by_user_id(@user)
+         @prompt.update_attributes(params[:prompt])
+          flash[:success] = "Update your prompt below"
+       rescue
+         @prompt = Prompt.new(params[:prompt])
+         @prompt.save
+          flash[:success] = "Save you Prompt below"
+       ensure 
 
+       end
    end
   
   def set
