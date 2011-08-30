@@ -24,6 +24,24 @@ class EmployeeMail < ActionMailer::Base
     @emNameSick = emName
     mail(:to => user.email, :subject => "Employee Passed Max Sick Days")
   end
+
+  def prompt_5_email(user,emName)
+    @user = user
+    @all_user = User.select("email")
+    @employee = @user.employees
+
+    @emNameAnni = emName
+    mail(:to => user.email, :subject => "Employee 5 year Anniversary Notice")
+  end
+
+   def prompt_10_email(user,emName)
+    @user = user
+    @all_user = User.select("email")
+    @employee = @user.employees
+
+    @emNameAnni = emName
+    mail(:to => user.email, :subject => "Employee 10 year Anniversary Notice")
+  end
   
   
 end

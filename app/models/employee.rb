@@ -1,5 +1,5 @@
 class Employee < ActiveRecord::Base
-  attr_accessible :name, :doe, :dob, :vacayTotal, :vacayUsed, :sickTotal, :sickUsed
+  attr_accessible :name, :doe, :dob, :vacayTotal, :vacayUsed, :sickTotal, :sickUsed, :department
   belongs_to :user
   
   validates_presence_of :name, :on => :create, :message => "can't be blank"
@@ -9,6 +9,7 @@ class Employee < ActiveRecord::Base
   validates_presence_of :vacayUsed, :on => :create, :message => "can't be blank"
   validates_presence_of :sickTotal, :on => :create, :message => "can't be blank"
   validates_presence_of :sickUsed, :on => :create, :message => "can't be blank"
+  validates_presence_of :department, :on => :create, :message => "can't be blank"
   
   
   

@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20110809013508) do
     t.integer  "sickTotal"
     t.integer  "sickUsed"
     t.integer  "user_id"
+    t.string   "department"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

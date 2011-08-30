@@ -9,6 +9,7 @@ class CreateEmployees < ActiveRecord::Migration
       t.integer :sickTotal
       t.integer :sickUsed
       t.integer :user_id
+      t.string :department
 
       t.timestamps
     end

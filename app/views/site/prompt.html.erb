@@ -6,17 +6,37 @@
 		@user.name
 		@emName = Array.new 
 		@emNameAnni = Array.new
+		@emNameAnni5 = Array.new
+		@emNameAnni10 = Array.new
 		@emNameSick = Array.new
 	%>
 	<% @employees.each do |employ|%>
 		<!-- Set one year prompt-->
 		<ol>
-			<% if Time.now.month == employ.doe.month && Time.now.day == employ.doe.day %>
+
+		<% if Time.now.month == employ.doe.month && Time.now.day == employ.doe.day && Time.now.year  == employ.doe.year + 5 %>
+
+			<%= "Welcome Ill be damn, it actually worked, 5 years anniv" %>
+			<% 
+			@emNameAnni5 = @emNameAnni5.push(employ.name) 
+			@emailValueAnni5 = "5AnniPrompt"
+			%>
+
+			<% elsif Time.now.month == employ.doe.month && Time.now.day == employ.doe.day && Time.now.year == employ.doe.year + 10  %>
+				<%=  "Match " + employ.name %>
+				<% 
+				@emNameAnni10 = @emNameAnni10.push(employ.name) 
+				@emailValueAnni10 = "10AnniPrompt"
+				%>
+
+			<% elsif Time.now.month == employ.doe.month && Time.now.day == employ.doe.day && Time.now.year != employ.doe.year  %>
 				<%=  "Match " + employ.name %>
 				<% 
 				@emNameAnni = @emNameAnni.push(employ.name) 
 				@emailValueAnni = "AnniPrompt"
 				%>
+
+				
 				<% else %>
 					<li><%=  "No Match, no email for "+ employ.name %></li>
 				<% end %>
@@ -64,6 +84,23 @@
 			<!-- Send anniversary email -->
 			<% if @emailValueAnni == "AnniPrompt" && @anniValue == "true"  %>
 			<% EmployeeMail.prompt_email(@user,@emNameAnni).deliver %>
+				Email sent <%= @all_user.all %>
+				<% else %>
+				<p>"|| Will not send"
+			<%end %>
+
+
+			<!-- Send "5 year" anniversary email -->
+			<% if @emailValueAnni5 == "5AnniPrompt" && @anniValue == "true"  %>
+			<% EmployeeMail.prompt_5_email(@user,@emNameAnni5).deliver %>
+				Email sent <%= @all_user.all %>
+				<% else %>
+				<p>"|| Will not send"
+			<%end %>
+
+			<!-- Send "10 year" anniversary email -->
+			<% if @emailValueAnni10 == "10AnniPrompt" && @anniValue == "true"  %>
+			<% EmployeeMail.prompt_10_email(@user,@emNameAnni10).deliver %>
 				Email sent <%= @all_user.all %>
 				<% else %>
 				<p>"|| Will not send"
