@@ -6,8 +6,12 @@
 		@user.name
 		@emName = Array.new 
 		@emNameAnni = Array.new
+		@emNameAnniM = Array.new
 		@emNameAnni5 = Array.new
+		@emNameAnni5w = Array.new
+		@emNameAnni5m = Array.new
 		@emNameAnni10 = Array.new
+		@emNameAnni10m = Array.new
 		@emNameSick = Array.new
 	%>
 	<% @employees.each do |employ|%>
@@ -40,6 +44,63 @@
 				<% else %>
 					<li><%=  "No Match, no email for "+ employ.name %></li>
 				<% end %>
+
+		<!-- Set one year prompt one month out -->	
+		<% if Time.now.month + 2 == employ.doe.month && Time.now.day == employ.doe.day && Time.now.year  == employ.doe.year + 5 %>
+
+			<%= " Month before Match 5 year prompt" %>
+			<% 
+			@emNameAnni5m = @emNameAnni5m.push(employ.name) 
+			@emailValueAnni5m = "5mAnniPrompt"
+			%>
+
+			<% elsif Time.now.month + 2 == employ.doe.month && Time.now.day == employ.doe.day && Time.now.year == employ.doe.year + 10  %>
+				<%=  "Month before Match 10 year prompt " + employ.name %>
+				<% 
+				@emNameAnni10m = @emNameAnni10m.push(employ.name) 
+				@emailValueAnni10m = "10mAnniPrompt"
+				%>
+
+			<% elsif Time.now.month + 2  == employ.doe.month && Time.now.day == employ.doe.day && Time.now.year != employ.doe.year  %>
+				<%=  "Month before Match prompt " + employ.name %>
+				<% 
+				@emNameAnniM = @emNameAnniM.push(employ.name) 
+				@emailValueAnniM = "AnniPromptM"
+				%>
+
+				
+				<% else %>
+					<li><%=  "No Match, no email for "+ employ.name %></li>
+				<% end %>
+
+		<!-- Set one WEEK prompt one month out -->	
+		<% if Date.today.to_s == (employ.doe + 1.week ).to_s   %>
+
+			<%= " ALL NEW GOODnes" %>
+			<% 
+			@emNameAnni5w = @emNameAnni5w.push(employ.name) 
+			@emailValueAnni5w = "5wAnniPrompt"
+			%>
+
+			<% elsif Time.now.month + 2 == employ.doe.month && Time.now.day == employ.doe.day && Time.now.year == employ.doe.year + 10  %>
+				<%=  "Month before Match 10 year prompt " + employ.name %>
+				<% 
+				@emNameAnni10m = @emNameAnni10m.push(employ.name) 
+				@emailValueAnni10m = "10mAnniPrompt"
+				%>
+
+			<% elsif Time.now.month + 2  == employ.doe.month && Time.now.day == employ.doe.day && Time.now.year != employ.doe.year  %>
+				<%=  "Month before Match prompt " + employ.name %>
+				<% 
+				@emNameAnniM = @emNameAnniM.push(employ.name) 
+				@emailValueAnniM = "AnniPromptM"
+				%>
+
+				
+				<% else %>
+					<li><%=  "GRR ||| GRRR WEEK  "+ employ.name %></li>
+				<% end %>		
+			
 				
 		<!-- Set Max Vacation prompt-->
 			<li>
@@ -98,9 +159,33 @@
 				<p>"|| Will not send"
 			<%end %>
 
+			<!-- Send "5 year" (One WEEK out) anniversary email -->
+			<% if @emailValueAnni5w == "5wAnniPrompt" && @anniValue == "true"  %>
+			<% EmployeeMail.prompt_5w_email(@user,@emNameAnni5w).deliver %>
+				Email sent <%= @all_user.all %>
+				<% else %>
+				<p>"|| Will not send"
+			<%end %>
+
+			<!-- Send "5 year" (One Month out) anniversary email -->
+			<% if @emailValueAnni5m == "5mAnniPrompt" && @anniValue == "true"  %>
+			<% EmployeeMail.prompt_5m_email(@user,@emNameAnni5m).deliver %>
+				Email sent <%= @all_user.all %>
+				<% else %>
+				<p>"|| Will not send"
+			<%end %>
+
 			<!-- Send "10 year" anniversary email -->
 			<% if @emailValueAnni10 == "10AnniPrompt" && @anniValue == "true"  %>
 			<% EmployeeMail.prompt_10_email(@user,@emNameAnni10).deliver %>
+				Email sent <%= @all_user.all %>
+				<% else %>
+				<p>"|| Will not send"
+			<%end %>
+
+			<!-- Send "10 year" (One month out) anniversary email -->
+			<% if @emailValueAnni10m == "10mAnniPrompt" && @anniValue == "true"  %>
+			<% EmployeeMail.prompt_10m_email(@user,@emNameAnni10m).deliver %>
 				Email sent <%= @all_user.all %>
 				<% else %>
 				<p>"|| Will not send"

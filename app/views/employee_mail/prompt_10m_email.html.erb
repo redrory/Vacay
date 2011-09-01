@@ -1,0 +1,26 @@
+Hi <%= @user.name%>,
+<p>The following employees have their 10 have anniversaries today in ONE MONTH.</p>
+
+<table>
+  <tr>
+    <th>Employee </th>
+    <th>Date</th>
+
+  </tr>
+  <% for em in @emNameAnni %>
+    <tr>
+      <td><%=h em %></td>
+	  <td><%= Time.now %> </td>
+    </tr>
+    </tr>
+  <% end %>
+</table>
+<%#= 
+@emArray.name
+
+	
+	%>
+<%#= ann.name %>
+
+<%# end %>
+
