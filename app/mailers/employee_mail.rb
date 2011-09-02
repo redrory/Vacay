@@ -34,6 +34,15 @@ class EmployeeMail < ActionMailer::Base
     mail(:to => user.email, :subject => "One WEEK notice of 1st Anniversary ")
   end
 
+  def prompt_ANYm_email(user,emName)
+    @user = user
+    @all_user = User.select("email")
+    @employee = @user.employees
+
+    @emNameAnni = emName
+    mail(:to => user.email, :subject => "One MONTH notice of ANY Anniversary ")
+  end
+
   def prompt_5_email(user,emName)
     @user = user
     @all_user = User.select("email")
