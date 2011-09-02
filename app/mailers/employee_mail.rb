@@ -25,6 +25,15 @@ class EmployeeMail < ActionMailer::Base
     mail(:to => user.email, :subject => "Employee Passed Max Sick Days")
   end
 
+  def prompt_w_email(user,emName)
+    @user = user
+    @all_user = User.select("email")
+    @employee = @user.employees
+
+    @emNameAnni = emName
+    mail(:to => user.email, :subject => "One WEEK notice of 1st Anniversary ")
+  end
+
   def prompt_5_email(user,emName)
     @user = user
     @all_user = User.select("email")
@@ -60,6 +69,15 @@ class EmployeeMail < ActionMailer::Base
 
     @emNameAnni = emName
     mail(:to => user.email, :subject => "Employee 10 year Anniversary Notice")
+  end
+
+  def prompt_10w_email(user,emName)
+    @user = user
+    @all_user = User.select("email")
+    @employee = @user.employees
+
+    @emNameAnni = emName
+    mail(:to => user.email, :subject => "One WEEK Notice for Employee 10 year Anniversary Notice")
   end
 
      def prompt_10m_email(user,emName)
