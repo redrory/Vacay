@@ -1,20 +1,20 @@
 Hi <%= @user.name%>,
-<p>The following employees have their 1st anniversaries today in ONE WEEK.</p>
+<p>Employees celebrating anniversary in ONE week.</p>
 
 <table>
   <tr>
-    <th>Employee </th>
-    <th>Date</th>
-
+    <th><b>Name </b></th>
   </tr>
   <% for em in @emNameAnni %>
     <tr>
-      <td><%=h em %></td>
-	  <td><%= Time.now %> </td>
+    <ol>
+      <li><td><%=h em %></td></li>
+    </ol>
     </tr>
     </tr>
   <% end %>
 </table>
+
 <%#= 
 @emArray.name
 

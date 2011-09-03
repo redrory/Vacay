@@ -1,16 +1,15 @@
 Hi <%= @user.name%>,
-<p>The following employees have their 10 have anniversaries today in ONE MONTH.</p>
+<p>Employees celebrating their 10 year anniversary in ONE week.</p>
 
 <table>
   <tr>
-    <th>Employee </th>
-    <th>Date</th>
-
+    <th><b>Name </b></th>
   </tr>
   <% for em in @emNameAnni %>
     <tr>
-      <td><%=h em %></td>
-	  <td><%= Time.now %> </td>
+    <ol>
+      <li><td><%=h em %></td></li>
+    </ol>
     </tr>
     </tr>
   <% end %>

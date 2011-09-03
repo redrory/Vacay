@@ -17,19 +17,19 @@
 		@emNameAnniw = Array.new
 	%>
 	<% @employees.each do |employ|%>
-		<!-- Set one year prompt-->
+		<!-- Set DAY OFF Prompt-->
 		<ol>
 
-		<% if Time.now.month == employ.doe.month && Time.now.day == employ.doe.day && Time.now.year  == employ.doe.year + 5 %>
+		<% if Date.today.to_s == (employ.doe + 5.year).to_s  %>
 
-			<%= "Welcome Ill be damn, it actually worked, 5 years anniv" %>
+			<%= "First year anniversary today " %>
 			<% 
 			@emNameAnni5 = @emNameAnni5.push(employ.name) 
 			@emailValueAnni5 = "5AnniPrompt"
 			%>
 
-			<% elsif Time.now.month == employ.doe.month && Time.now.day == employ.doe.day && Time.now.year == employ.doe.year + 10  %>
-				<%=  "Match " + employ.name %>
+			<% elsif Date.today.to_s == (employ.doe + 10.year).to_s  %>
+				<%=  "10 year anniversary today " + employ.name %>
 				<% 
 				@emNameAnni10 = @emNameAnni10.push(employ.name) 
 				@emailValueAnni10 = "10AnniPrompt"
