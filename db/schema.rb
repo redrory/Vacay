@@ -48,9 +48,11 @@ ActiveRecord::Schema.define(:version => 20110809013508) do
   end
 
   create_table "prompts", :force => true do |t|
-    t.string   "onyear"
-    t.string   "anniversary"
-    t.string   "max"
+    t.string   "weekPrompt"
+    t.string   "monthPrompt"
+    t.string   "dayPrompt"
+    t.string   "maxVacay"
+    t.string   "maxSick"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -7,10 +7,13 @@
 		    :url => url_for(:action => 'set', :controller => 'users'),
 		    :method => 'post' do |f| %>
 
+			<%= f.input :weekPrompt, :label => "Anniversary Prompt", :as => :radio %>
+			<%= f.input :monthPrompt, :label => "One Week anniversary Prompt", :as => :radio %>				
+			<%= f.input :dayPrompt, :label => "One Month anniversary Prompt", :as => :radio %>
+			<%= f.input :maxVacay, :label => "Max Vacation days Prompt", :as => :radio %>					
+			<%= f.input :maxSick, :label => "Max Sick days Prompt", :as => :radio%>
 
-			<%= f.input :onyear, :label => "Employees has worked for one year.", :as => :radio %>					
-			<%= f.input :anniversary, :label => "Employees has reached anniversary.", :as => :radio%>
-			<%= f.input :max, :label => "Employees has reach the max amount of vacation/sick days" , :as => :radio%>
+
 		<%= f.hidden_field :user_id, :value => @user.id%>
 	    <%= f.button :submit%>
 	  <% end %>

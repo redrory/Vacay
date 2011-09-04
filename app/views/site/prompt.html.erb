@@ -131,100 +131,102 @@
 		<% @prompts.each do |prompt|%>
 
 		<p><b>User ID</b> <%= prompt.user_id  %> </p>
-			<%= @user.name %>One Year Prompt : <%= @onyearValue = prompt.onyear %> </br>
-			Anniversary : <%= @anniValue = prompt.anniversary %></br>
-			Max : <%= @maxValue = prompt.max %> </br>
-			
+			<%= @user.name %>One Year Prompt : 
+
+			<%= @weekPromptValue = prompt.weekPrompt %> </br>
+			<%= @monthPromptValue = prompt.monthPrompt %> </br>
+			<%= @dayPromptValue = prompt.dayPrompt %> </br>
+			<%= @maxVacayPromptValue = prompt.maxVacay %> </br>
+			<%= @maxSickPromptValue = prompt.maxSick %> </br>	
 				<% end %>
 		
 	
 		
 			<!-- Send anniversary email -->
-			<% if @emailValueAnni == "AnniPrompt" && @anniValue == "true"  %>
+			<% if @emailValueAnni == "AnniPrompt" && @dayPromptValue == "true"  %>
 			<% EmployeeMail.prompt_email(@user,@emNameAnni).deliver %>
 				Email sent <%= @all_user.all %>
 				<% else %>
-				<p>"|| Will not send"
+				<p>"|| Day Prompt - Will not send"
 			<%end %>
 
 			<!-- Send one WEEK out email -->
-			<% if @emNameAnniM == "wAnniPrompt" && @anniValue == "true"  %>
+			<% if @emNameAnniM == "wAnniPrompt" && @weekPromptValue == "true"  %>
 			<% EmployeeMail.prompt_w_email(@user,@emNameAnniM).deliver %>
 				Email sent <%= @all_user.all %>
 				<% else %>
-				<p>"|| Will not send"
+				<p>"|| Week Prompt - Will not send"
 			<%end %>
 
 			<!-- Send "ANY year" (One Month out) anniversary email -->
-			<% if @emailValueAnniM == "AnniPromptM" && @anniValue == "true"  %>
+			<% if @emailValueAnniM == "AnniPromptM" && @monthPromptValue == "true"  %>
 			<% EmployeeMail.prompt_ANYm_email(@user,@emNameAnniM).deliver %>
 				Email sent <%= @all_user.all %>
 				<% else %>
-				<p>"|| Will not send"
+				<p>"|| Month Prompt - Will not send"
 			<%end %>
 
 
 			<!-- Send "5 year" anniversary email -->
-			<% if @emailValueAnni5 == "5AnniPrompt" && @anniValue == "true"  %>
+			<% if @emailValueAnni5 == "5AnniPrompt" && @dayPromptValue == "true"  %>
 			<% EmployeeMail.prompt_5_email(@user,@emNameAnni5).deliver %>
 				Email sent <%= @all_user.all %>
 				<% else %>
-				<p>"|| Will not send"
+				<p>"|| Day 5 year Prompt - Will not send"
 			<%end %>
 
 			<!-- Send "5 year" (One WEEK out) anniversary email -->
-			<% if @emailValueAnni5w == "5wAnniPrompt" && @anniValue == "true"  %>
+			<% if @emailValueAnni5w == "5wAnniPrompt" && @weekPromptValue == "true"  %>
 			<% EmployeeMail.prompt_5w_email(@user,@emNameAnni5w).deliver %>
 				Email sent <%= @all_user.all %>
 				<% else %>
-				<p>"|| Will not send"
+				<p>"|| Week 5 year Prompt - Will not send"
 			<%end %>
 
 			<!-- Send "5 year" (One Month out) anniversary email -->
-			<% if @emailValueAnni5m == "5mAnniPrompt" && @anniValue == "true"  %>
+			<% if @emailValueAnni5m == "5mAnniPrompt" && @monthPromptValue == "true"  %>
 			<% EmployeeMail.prompt_5m_email(@user,@emNameAnni5m).deliver %>
 				Email sent <%= @all_user.all %>
 				<% else %>
-				<p>"|| Will not send"
+				<p>"||Month 5 year Prompt -  Will not send"
 			<%end %>
 
 			<!-- Send "10 year" anniversary email -->
-			<% if @emailValueAnni10 == "10AnniPrompt" && @anniValue == "true"  %>
+			<% if @emailValueAnni10 == "10AnniPrompt" && @dayPromptValue == "true"  %>
 			<% EmployeeMail.prompt_10_email(@user,@emNameAnni10).deliver %>
 				Email sent <%= @all_user.all %>
 				<% else %>
-				<p>"|| Will not send"
+				<p>"|| Day 10 year Prompt - Will not send"
 			<%end %>
 
-			<!-- Send "10 year" (One month out) anniversary email -->
-			<% if @emailValueAnni10w == "10wAnniPrompt" && @anniValue == "true"  %>
+			<!-- Send "10 year" (One week out) anniversary email -->
+			<% if @emailValueAnni10w == "10wAnniPrompt" && @weekPromptValue == "true"  %>
 			<% EmployeeMail.prompt_10w_email(@user,@emNameAnni10w).deliver %>
 				Email sent <%= @all_user.all %>
 				<% else %>
-				<p>"|| Will not send"
+				<p>"|| Week 10 year Prompt - Will not send"
 			<%end %>
 
 			<!-- Send "10 year" (One month out) anniversary email -->
-			<% if @emailValueAnni10m == "10mAnniPrompt" && @anniValue == "true"  %>
+			<% if @emailValueAnni10m == "10mAnniPrompt" && @monthPromptValue == "true"  %>
 			<% EmployeeMail.prompt_10m_email(@user,@emNameAnni10m).deliver %>
 				Email sent <%= @all_user.all %>
 				<% else %>
-				<p>"|| Will not send"
+				<p>"|| Month 10 year Prompt - Will not send"
 			<%end %>
 			
 			   <!-- Send max Vacay email -->
-			<b><u>"Max Vacay not sent"</b><u/>
-			<% if @emailValueVacay == "vacayPrompt" && @maxValue == "true" %>
+			<% if @emailValueVacay == "vacayPrompt" && @maxVacayPromptValue == "true" %>
 			<% EmployeeMail.prompt_max_email(@user,@emName).deliver %>
 				<p><b><u>"|| Max Vacay Email has been sent to HR, email value =  <%= @emailValueVacay%>"</b></u>		
 			<% else%>
-				bah bah
+				Max Vacay NOT send
 			<%end %>	
 				
 		<!-- Send max Sick email -->
 		<% if @emailSick.nil? == true %>
 			<b><u>"Sick Not sent"</b><u/>
-		<% elsif @emailSick = "sickPrompt" && @maxValue == "true" %>
+		<% elsif @emailSick = "sickPrompt" && @maxSickPromptValue == "true" %>
 			<p><b><u>"|| Max Sick Email has been sent to HR"</b></u>
 			<% EmployeeMail.prompt_max_sick_email(@user,@emNameSick).deliver %>
 			<%end %>
