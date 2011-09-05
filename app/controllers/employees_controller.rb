@@ -22,7 +22,21 @@ class EmployeesController < ApplicationController
     #@employee = current_user.employees.build(params[:employee])
     @title = "Edit Employee"
   end
+
+  def editVacay  
+   @employee = Employee.find(params[:id])
+
+    #@employee = current_user.employees.build(params[:employee])
+    @title = "Request Vacation"
+  end
+
+   def editSick  
+   @employee = Employee.find(params[:id])
+    #@employee = current_user.employees.build(params[:employee])
+    @title = "Request Sick day"
+  end
   
+
   def update
       @employee = Employee.find(params[:id])
       if @employee.update_attributes(params[:employee])

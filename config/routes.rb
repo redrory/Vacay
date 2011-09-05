@@ -6,7 +6,7 @@ Vacaytracker::Application.routes.draw do
   #resources :manages
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
-  resources :employees, :only => [:create, :destroy, :edit, :update]
+  resources :employees, :only => [:create, :destroy, :edit, :editVacay, :update]
   resources :prompts
 
   root :to => "site#home"
@@ -28,6 +28,11 @@ Vacaytracker::Application.routes.draw do
   match '/vacay_report' => 'users#vacay_report' 
   match '/sick_report' => 'users#sick_report'
   match '/vs_report' => 'users#vs_report'
+
+  match '/test' => 'users#test'
+  match '/editVacay' => 'employees#editVacay'
+   match '/editSick' => 'employees#editSick'
+
 
    
  #   match "manage" => "site#manage"
