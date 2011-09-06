@@ -1,0 +1,25 @@
+<%= simple_form_for(@employee) do |f| %>
+  <%= f.error_notification %>
+
+  <h3>Enter Employee's Vacation requested days </h3>
+  <div class="inputs">
+    <b>Name</b> : <%= @employee.name %>
+    <b>DOE</b> : <%= @employee.doe %>
+    <b>DOB</b> : <%= @employee.dob %> <br />
+
+    Vacation days entitled : <%= @employee.vacayTotal - @employee.vacayUsed%> <br />
+
+    <p>Select the requested dates:
+
+    From __ to __ 
+   </p>
+    
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+
+ <%#= f.input :vacayTotal, :label => "Vacation Days Allotted" %>
