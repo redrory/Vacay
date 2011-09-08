@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  brought_forward: 1
+  dateFrom: 1
+  dateUntil: 1
+  user_id: 1
+  sumVacay: 1
+
+two:
+  brought_forward: 1
+  dateFrom: 1
+  dateUntil: 1
+  user_id: 1
+  sumVacay: 1

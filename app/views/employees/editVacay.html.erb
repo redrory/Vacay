@@ -1,5 +1,5 @@
-<%= simple_form_for(@employee) do |f| %>
-  <%= f.error_notification %>
+
+  
 
   <h3>Enter Employee's Vacation requested days </h3>
   <div class="inputs">
@@ -10,20 +10,29 @@
     Vacation days entitled : <%= @employee.vacayTotal - @employee.vacayUsed%> <br />
 
     <p>Select the requested dates:
-
-    <%= f.text_field :dob %>
-
-
-
-    From to __ 
+    <%#= f.text_field :dob %>
+    From to
    </p>
-    
+
+   <%= simple_form_for (@vacay), 
+        :url => url_for(:action => 'setVacay', :controller => 'employees'),
+        :method => 'post' do |v| %>
+
+    <%= v.error_notification %>
+    <%= v.text_field :dateFrom %> to <%= v.text_field :dateUntil %>
+
+
+
   </div>
+
 
   <div class="actions">
-    <%= f.button :submit %>
+    <%= v.hidden_field :user_id, :value => @user.id%>
+    <%= v.button :submit %>
   </div>
 <% end %>
+
+
 
 
  <%#= f.input :vacayTotal, :label => "Vacation Days Allotted" %>

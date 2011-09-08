@@ -24,10 +24,25 @@ class EmployeesController < ApplicationController
   end
 
   def editVacay  
-   @employee = Employee.find(params[:id])
-
-    #@employee = current_user.employees.build(params[:employee])
+    @user = current_user
     @title = "Request Vacation"
+    @employee = Employee.find(params[:id])
+
+    @vacay = Vacay.new(params[:vacay])
+
+
+
+  end
+
+  def setVacay
+    @user = current_user
+    @vacay = Vacay.find_by_user_id(@user)
+    @vacay = Vacay.new(params[:vacay])
+    @vacay.save
+    flash[:success] = "Created vacation request"
+    redirect_to :controller => "users", :action => "allemploy"
+    
+
   end
 
    def editSick  

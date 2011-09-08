@@ -6,6 +6,8 @@ jQuery(document).ready(function() {
 
 
 	jQuery( '#employee_dob' ).datepicker();
+	jQuery( '#vacay_dateFrom' ).datepicker();
+	jQuery( '#vacay_dateUntil' ).datepicker();
 
 	
 	jQuery('a[id = "maxVacay"]').click(function(){

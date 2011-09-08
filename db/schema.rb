@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110809013508) do
+ActiveRecord::Schema.define(:version => 20110907020226) do
 
   create_table "employees", :force => true do |t|
     t.string   "name"
@@ -74,6 +74,16 @@ ActiveRecord::Schema.define(:version => 20110809013508) do
     t.string   "salt"
     t.boolean  "admin",              :default => true
     t.integer  "size"
+  end
+
+  create_table "vacays", :force => true do |t|
+    t.integer  "brought_forward"
+    t.string   "dateFrom"
+    t.string   "dateUntil"
+    t.integer  "user_id"
+    t.integer  "sumVacay"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
