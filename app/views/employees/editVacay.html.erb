@@ -7,8 +7,8 @@
     <b>DOE</b> : <%= @employee.doe %>
     <b>DOB</b> : <%= @employee.dob %> <br />
 
-    Vacation days entitled : <%= @employee.vacayTotal - @employee.vacayUsed%> <br />
-
+    Vacation days entitled : <%= @vacayTaken = @employee.vacayTotal - @employee.vacayUsed%> <br />
+     Vacay entitled =  <%=@vacayTaken%>
     <p>Select the requested dates:
     <%#= f.text_field :dob %>
     From to
@@ -19,14 +19,16 @@
         :method => 'post' do |v| %>
 
     <%= v.error_notification %>
-    <%= v.text_field :dateFrom %> to <%= v.text_field :dateUntil %>
+    <%= v.text_field :dateFrom, :value_method => @vacay %> to <%= v.text_field :dateUntil, :value_method => @vacay %>
 
 
 
   </div>
-
+  test <%= @employee.id %>
 
   <div class="actions">
+    <%= v.hidden_field :brought_forward, :value => @vacayTaken%>
+    <%= v.hidden_field :employee_id, :value => @employee.id%>
     <%= v.hidden_field :user_id, :value => @user.id%>
     <%= v.button :submit %>
   </div>

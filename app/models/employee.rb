@@ -1,5 +1,5 @@
 class Employee < ActiveRecord::Base
-  attr_accessible :name, :doe, :dob, :vacayTotal, :vacayUsed, :sickTotal, :sickUsed, :department
+  attr_accessible :name, :doe, :dob, :vacayTotal, :vacayUsed, :sickTotal, :sickUsed, :department,:brought_forward, :dateFrom, :dateUntil, :user_id, :sumVacay
   belongs_to :user
   
   validates_presence_of :name, :on => :create, :message => "can't be blank"

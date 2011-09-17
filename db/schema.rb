@@ -78,9 +78,10 @@ ActiveRecord::Schema.define(:version => 20110907020226) do
 
   create_table "vacays", :force => true do |t|
     t.integer  "brought_forward"
-    t.string   "dateFrom"
-    t.string   "dateUntil"
+    t.date     "dateFrom"
+    t.date     "dateUntil"
     t.integer  "user_id"
+    t.integer  "employee_id"
     t.integer  "sumVacay"
     t.datetime "created_at"
     t.datetime "updated_at"
