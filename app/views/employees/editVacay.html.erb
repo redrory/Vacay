@@ -7,6 +7,8 @@
     <b>DOE</b> : <%= @employee.doe %>
     <b>DOB</b> : <%= @employee.dob %> <br />
 
+    <% @diffDays; %>
+
     Vacation days entitled : <%= @vacayTaken = @employee.vacayTotal - @employee.vacayUsed%> <br />
      Vacay entitled =  <%=@vacayTaken%>
     <p>Select the requested dates:
@@ -26,7 +28,9 @@
   </div>
   test <%= @employee.id %>
 
+
   <div class="actions">
+    <%= v.hidden_field :sumVacay, :value => @diffDays %>
     <%= v.hidden_field :brought_forward, :value => @vacayTaken%>
     <%= v.hidden_field :employee_id, :value => @employee.id%>
     <%= v.hidden_field :user_id, :value => @user.id%>

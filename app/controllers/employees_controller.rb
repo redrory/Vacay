@@ -17,8 +17,9 @@ class EmployeesController < ApplicationController
     @title = "Home"
     @employee = Employee.new if signed_in?
   end
+
   def edit  
-   @employee = Employee.find(params[:id])
+    @employee = Employee.find(params[:id])
     @employee = current_user.employees.build(params[:employee])
     @title = "Edit Employee"
   end
@@ -27,16 +28,11 @@ class EmployeesController < ApplicationController
     @user = current_user
     @title = "Request Vacation"
     @employee = Employee.find(params[:id])
-
     @vacay = Vacay.new(params[:vacay])
-
-
-
   end
 
   def setVacay
     @user = current_user
-    #@vacay = Vacay.find_by_user_id(@user)
     @vacay = Vacay.new(params[:vacay])
 
     @vacay.save
