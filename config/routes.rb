@@ -6,7 +6,7 @@ Vacaytracker::Application.routes.draw do
   #resources :manages
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
-  resources :employees, :only => [:create, :destroy, :edit, :editVacay, :update]
+  resources :employees, :only => [:create, :destroy, :edit, :editVacay, :setVacay ,:update]
   resources :prompts
   resources :vacays
 

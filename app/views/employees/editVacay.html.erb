@@ -7,9 +7,9 @@
     <b>DOE</b> : <%= @employee.doe %>
     <b>DOB</b> : <%= @employee.dob %> <br />
 
-    <% @diffDays; %>
+    <%# @diffDays; %>
 
-    Vacation days entitled : <%= @vacayTaken = @employee.vacayTotal - @employee.vacayUsed%> <br />
+    Vacation days entitled : <%= @vacayTaken = @employee.vacayTotal %> <br />
      Vacay entitled =  <%=@vacayTaken%>
     <p>Select the requested dates:
     <%#= f.text_field :dob %>

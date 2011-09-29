@@ -37,7 +37,7 @@ jQuery(document).ready(function() {
   		//jQuery.('name=vacay_sumVacay').val(diffDays);
   		jQuery("[id='vacay_sumVacay']").val(diffDays);
 
-		console.log('after diff ' + "__"+diffDays);
+
 	});
 
 	

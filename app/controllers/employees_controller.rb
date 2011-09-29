@@ -20,9 +20,10 @@ class EmployeesController < ApplicationController
 
   def edit  
     @employee = Employee.find(params[:id])
-    @employee = current_user.employees.build(params[:employee])
-    @title = "Edit Employee"
+    @title = "Mic Edit Employee"
   end
+
+
 
   def editVacay  
     @user = current_user
@@ -37,8 +38,16 @@ class EmployeesController < ApplicationController
 
     @vacay.save
     flash[:success] = "Created vacation request"
-    redirect_to :controller => "users", :action => "allemploy"
+    
 
+    #@employee = Employee.find_by_user_id(params:[id])
+    @employee = Employee.find(params[:vacay][:employee_id])
+    @employee.update_attributes(:vacayUsed => params[:vacay][:sumVacay])
+
+    #Object.update_attributes(:field1 => "value", :field2 => "value2", :field3 => "value3")
+    #@cust = Customer.new(:firstName => params[:firstName], :lastName => params[:lastName])
+   
+    redirect_to :controller => "users", :action => "allemploy"
 
   end
 
@@ -60,6 +69,7 @@ class EmployeesController < ApplicationController
         render 'edit'
       end
     end
+
 
   
   def destroy
